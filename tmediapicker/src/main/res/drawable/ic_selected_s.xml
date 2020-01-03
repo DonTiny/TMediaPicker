@@ -11,7 +11,7 @@
                         android:width="@dimen/dp_5"
                         android:height="@dimen/dp_5" />
 
-                    <solid android:color="@color/tMediaPickerAlbumRightArrow" />
+                    <solid android:color="@color/tMediaPickerAudioCheckedBack" />
 
                 </shape>
             </item>

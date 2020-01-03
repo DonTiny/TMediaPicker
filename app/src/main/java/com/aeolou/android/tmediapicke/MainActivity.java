@@ -69,22 +69,22 @@ public class MainActivity extends TMediaPickerActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_select_photo:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALL, 7);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALL, 0);
                 break;
             case R.id.btn_select_video:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALL, 2);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALL, 0);
                 break;
             case R.id.btn_select_music:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALL, 3);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALL, 8);
                 break;
             case R.id.btn_select_photo_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALBUM, 4);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALBUM, 0);
                 break;
             case R.id.btn_select_video_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALBUM, 5);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALBUM, 0);
                 break;
             case R.id.btn_select_audio_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALBUM, 6);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALBUM, 1);
                 break;
         }
     }
