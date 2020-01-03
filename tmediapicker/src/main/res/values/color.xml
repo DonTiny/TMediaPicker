@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--标题栏颜色-->
+    <color name="tMediaPickerPrimary">#FFFFFF</color>
+    <!--状态栏颜色-->
+    <color name="tMediaPickerPrimaryDark">#FFFFFF</color>
+    <!--状态栏文字颜色,黑色:true,白色:false-->
+    <bool name="tMediaPickerStatusText">true</bool>
+    <!--是否显示已选择数量，默认显示-->
+    <bool name="tMediaPickerIsShowSelected">true</bool>
+    <!--加载进度颜色-->
+    <color name="tMediaPickerAccent">#4CAF50</color>
+    <!--页面背景色-->
+    <color name="tMediaPickerBackground">#FFFFFF</color>
+    <!-- 标题文字颜色-->
+    <color name="tMediaPickerToolbarTitleText">#4CAF50</color>
+    <!-- 确定按钮文字颜色-->
+    <color name="tMediaPickerToolbarConfirmText">#4CAF50</color>
+    <!-- 返回按钮颜色-->
+    <color name="tMediaPickerToolbarPrimaryReturn">#4CAF50</color>
+    <!--目录标题颜色-->
+    <color name="tMediaPickerAlbumText">#007AFF</color>
+    <!--目录文件数量颜色-->
+    <color name="tMediaPickerAlbumHint">#4d4559FF</color>
+    <!--相册目录右箭头颜色-->
+    <color name="tMediaPickerAlbumRightArrow">#4559FF</color>
+    <!--选中蒙板颜色-->
+    <color name="tMediaPickerSelectedBack">#4d4559FF</color>
+    <!-- 选中数字颜色-->
+    <color name="tMediaPickerSelectedNum">#007AFF</color>
+    <!--音频标题颜色-->
+    <color name="tMediaPickerAudioTitle">#007AFF</color>
+    <!--音乐分割线颜色-->
+    <color name="tMediaPickerDividerLine">#F4F2F2</color>
+    <!--音乐CheckBox边框颜色-->
+    <color name="tMediaPickerAudioCheckBorder">#9B9B9B</color>
+    <!--音乐CheckBox选中背景-->
+    <color name="tMediaPickerAudioCheckedBack">#007AFF</color>
+    <!--音乐CheckBox勾选颜色-->
+    <color name="tMediaPickerAudioChecked">#FFFFFF</color>
+
+
+    <color name="colorVideoBack">#2d000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+</resources>

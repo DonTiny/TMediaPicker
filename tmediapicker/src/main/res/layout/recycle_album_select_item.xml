@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_layout_album_select"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_22">
+
+    <ImageView
+        android:id="@+id/iv_album_image"
+        android:layout_width="@dimen/dp_62"
+        android:layout_height="@dimen/dp_62"
+        android:layout_marginStart="@dimen/dp_17"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_album_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_9"
+        android:layout_marginTop="@dimen/dp_12"
+        android:ellipsize="end"
+        android:maxEms="10"
+        android:singleLine="true"
+        android:lines="1"
+        android:textColor="@color/tMediaPickerAlbumText"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintBottom_toTopOf="@id/tv_album_count"
+        app:layout_constraintStart_toEndOf="@id/iv_album_image"
+        app:layout_constraintTop_toTopOf="@id/iv_album_image" />
+
+    <TextView
+        android:id="@+id/tv_album_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_9"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:lines="1"
+        android:text="149"
+        android:textColor="@color/tMediaPickerAlbumHint"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintBottom_toBottomOf="@id/iv_album_image"
+        app:layout_constraintStart_toEndOf="@id/iv_album_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_album_name" />
+
+    <ImageView
+        android:id="@+id/iv_album_arrow"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_19"
+        android:src="@drawable/ic_right_arrow"
+        app:layout_constraintBottom_toBottomOf="@id/iv_album_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_album_image" />
+</androidx.constraintlayout.widget.ConstraintLayout>

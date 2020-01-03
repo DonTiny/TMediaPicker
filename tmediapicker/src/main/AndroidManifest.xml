@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.aeolou.digital.media.android.tmediapicke">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name">
+        <activity android:name=".activities.TMediaPickerActivity"></activity>
+        <activity
+            android:name=".activities.PhotoSelectActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/TMediaPickerTheme" />
+        <activity
+            android:name=".activities.VideoSelectActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/TMediaPickerTheme" />
+        <activity
+            android:name=".activities.AudioSelectActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/TMediaPickerTheme" />
+        <activity
+            android:name=".activities.PhotoAlbumActivity"
+            android:theme="@style/TMediaPickerTheme" />
+        <activity
+            android:name=".activities.VideoAlbumActivity"
+            android:theme="@style/TMediaPickerTheme" />
+        <activity
+            android:name=".activities.AudioAlbumActivity"
+            android:theme="@style/TMediaPickerTheme" />
+    </application>
+
+</manifest>

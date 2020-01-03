@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="TMediaPickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/tMediaPickerPrimary</item>
+        <item name="colorPrimaryDark">@color/tMediaPickerPrimaryDark</item>
+        <item name="colorAccent">@color/tMediaPickerAccent</item>
+        <item name="android:windowLightStatusBar">@bool/tMediaPickerStatusText</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">@color/tMediaPickerBackground</item>
+    </style>
+
+    <style name="ActionModeStyle" parent="Base.Widget.AppCompat.ActionMode">
+        <item name="background">@color/tMediaPickerPrimary</item>
+    </style>
+</resources>

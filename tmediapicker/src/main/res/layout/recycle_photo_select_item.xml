@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_115"
+    android:padding="@dimen/dp_2">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tMediaPickerSelectedBack"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_7"
+        android:text="111"
+        android:textColor="@color/tMediaPickerSelectedNum"
+        android:textSize="@dimen/sp_29"
+        android:translationZ="@dimen/dp_1"
+        android:visibility="invisible" />
+</androidx.constraintlayout.widget.ConstraintLayout>
