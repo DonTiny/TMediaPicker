@@ -7,7 +7,7 @@
     <!--标题栏颜色-->
     <color name="tMediaPickerPrimary">#FFFFFF</color>
     <!--状态栏颜色-->
-    <color name="tMediaPickerPrimaryDark">#9B9B9B</color>
+    <color name="tMediaPickerPrimaryDark">#FFFFFF</color>
     <!--状态栏文字颜色,黑色:true,白色:false,Android6.0以上有效-->
     <bool name="tMediaPickerStatusText">true</bool>
     <!--是否显示已选择数量(1/9)，默认显示-->
