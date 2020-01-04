@@ -4,7 +4,7 @@
     android:id="@+id/frame_layout_album_select"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/dp_22">
+    android:paddingVertical="@dimen/dp_11">
 
     <ImageView
         android:id="@+id/iv_album_image"

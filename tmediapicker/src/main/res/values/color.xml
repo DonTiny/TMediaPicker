@@ -3,8 +3,8 @@
     <!--标题栏颜色-->
     <color name="tMediaPickerPrimary">#FFFFFF</color>
     <!--状态栏颜色-->
-    <color name="tMediaPickerPrimaryDark">#FFFFFF</color>
-    <!--状态栏文字颜色,黑色:true,白色:false-->
+    <color name="tMediaPickerPrimaryDark">#9B9B9B</color>
+    <!--状态栏文字颜色,黑色:true,白色:false,Android6.0以上有效-->
     <bool name="tMediaPickerStatusText">true</bool>
     <!--是否显示已选择数量(1/9)，默认显示-->
     <bool name="tMediaPickerIsShowSelected">true</bool>
@@ -33,7 +33,7 @@
     <!--音乐分割线颜色-->
     <color name="tMediaPickerDividerLine">#F4F2F2</color>
     <!--音乐CheckBox边框颜色-->
-    <color name="tMediaPickerAudioCheckBorder">#9B9B9B</color>
+    <color name="tMediaPickerAudioCheckBorder">#9e9e9e</color>
     <!--音乐CheckBox选中背景-->
     <color name="tMediaPickerAudioCheckedBack">#4CAF50</color>
     <!--音乐CheckBox勾选颜色-->

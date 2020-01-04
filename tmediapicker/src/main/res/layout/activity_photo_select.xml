@@ -37,7 +37,7 @@
         android:id="@+id/recycle_image_select"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingHorizontal="@dimen/dp_17"
+        android:paddingHorizontal="@dimen/dp_9"
         android:paddingVertical="@dimen/dp_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

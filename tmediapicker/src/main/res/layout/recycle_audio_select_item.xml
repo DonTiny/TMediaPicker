@@ -24,12 +24,23 @@
         android:layout_width="@dimen/dp_21"
         android:layout_height="@dimen/dp_21"
         android:padding="0dp"
-        android:background="@drawable/select_image_audio"
+        android:background="@null"
         android:button="@null"
+        android:drawableLeft="@drawable/select_image_audio"
         android:checked="false"
+        android:visibility="visible"
         android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_return"-->
+<!--        android:layout_width="@dimen/dp_25"-->
+<!--        android:layout_height="@dimen/dp_25"-->
+<!--        android:padding="@dimen/dp_6"-->
+<!--        android:src="@drawable/select_image_audio"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

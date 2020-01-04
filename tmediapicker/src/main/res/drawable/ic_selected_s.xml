@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-            <item
-                android:width="@dimen/dp_21"
-                android:height="@dimen/dp_21">
-                <shape
-                    android:shape="oval"
-                    android:useLevel="true">
 
-                    <size
-                        android:width="@dimen/dp_5"
-                        android:height="@dimen/dp_5" />
-
-                    <solid android:color="@color/tMediaPickerAudioCheckedBack" />
-
-                </shape>
-            </item>
-
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/tMediaPickerAudioCheckedBack" />
+            <size
+                android:width="@dimen/dp_20"
+                android:height="@dimen/dp_20" />
+        </shape>
+    </item>
     <item
-        android:width="@dimen/dp_7"
-        android:height="@dimen/dp_2"
+        android:bottom="@dimen/dp_8"
         android:left="@dimen/dp_4"
-        android:top="@dimen/dp_11">
+        android:right="@dimen/dp_10"
+        android:top="@dimen/dp_10">
         <rotate
             android:fromDegrees="45"
             android:pivotX="45%"
@@ -28,17 +21,13 @@
             android:toDegrees="0">
             <shape>
                 <solid android:color="@color/tMediaPickerAudioChecked" />
-                <size
-                    android:width="@dimen/dp_5"
-                    android:height="@dimen/dp_5" />
             </shape>
         </rotate>
     </item>
-
     <item
-        android:width="@dimen/dp_11"
-        android:height="@dimen/dp_2"
+        android:bottom="@dimen/dp_8"
         android:left="@dimen/dp_7"
+        android:right="@dimen/dp_3"
         android:top="@dimen/dp_10">
         <rotate
             android:fromDegrees="315"
@@ -47,11 +36,7 @@
             android:toDegrees="0">
             <shape>
                 <solid android:color="@color/tMediaPickerAudioChecked" />
-                <size
-                    android:width="@dimen/dp_5"
-                    android:height="@dimen/dp_5" />
             </shape>
         </rotate>
     </item>
-
 </layer-list>

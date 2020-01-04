@@ -3,6 +3,43 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <!--是否显示已选择数量，默认显示-->
+
+    <!--标题栏颜色-->
+    <color name="tMediaPickerPrimary">#FFFFFF</color>
+    <!--状态栏颜色-->
+    <color name="tMediaPickerPrimaryDark">#9B9B9B</color>
+    <!--状态栏文字颜色,黑色:true,白色:false,Android6.0以上有效-->
+    <bool name="tMediaPickerStatusText">true</bool>
+    <!--是否显示已选择数量(1/9)，默认显示-->
     <bool name="tMediaPickerIsShowSelected">true</bool>
+    <!--加载进度颜色-->
+    <color name="tMediaPickerAccent">#4CAF50</color>
+    <!--页面背景色-->
+    <color name="tMediaPickerBackground">#FFFFFF</color>
+    <!-- 标题文字颜色-->
+    <color name="tMediaPickerToolbarTitleText">#000000</color>
+    <!-- 确定按钮文字颜色-->
+    <color name="tMediaPickerToolbarConfirmText">#4CAF50</color>
+    <!-- 返回按钮颜色-->
+    <color name="tMediaPickerToolbarPrimaryReturn">#000000</color>
+    <!--目录标题颜色-->
+    <color name="tMediaPickerAlbumText">#000000</color>
+    <!--目录文件数量颜色-->
+    <color name="tMediaPickerAlbumHint">#9B9B9B</color>
+    <!--相册目录右箭头颜色-->
+    <color name="tMediaPickerAlbumRightArrow">#9B9B9B</color>
+    <!--选中蒙板颜色-->
+    <color name="tMediaPickerSelectedBack">#4d000000</color>
+    <!-- 选中居中数字颜色-->
+    <color name="tMediaPickerSelectedNum">#FFFFFF</color>
+    <!--音频标题颜色-->
+    <color name="tMediaPickerAudioTitle">#4A4A4A</color>
+    <!--音乐分割线颜色-->
+    <color name="tMediaPickerDividerLine">#F4F2F2</color>
+    <!--音乐CheckBox边框颜色-->
+    <color name="tMediaPickerAudioCheckBorder">#9e9e9e</color>
+    <!--音乐CheckBox选中背景-->
+    <color name="tMediaPickerAudioCheckedBack">#4CAF50</color>
+    <!--音乐CheckBox勾选颜色-->
+    <color name="tMediaPickerAudioChecked">#FFFFFF</color>
 </resources>
