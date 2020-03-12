@@ -47,9 +47,12 @@ public class AudioLoader implements Runnable {
     public void run() {
         Cursor cursor = contentResolver.query(TConstants.AUDIO_URI, null, null, null, TConstants.AUDIO_SORT_ORDER);
         if (cursor == null) {
-            if (callbacks != null) {
-                callbacks.onError(new Throwable("cursor is null !"));
-            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+                }
+            });
             return;
         }
         audioInfos.clear();
@@ -85,7 +88,7 @@ public class AudioLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callbacks.onAudioResult(audioInfos);
+                if (callbacks!=null) callbacks.onAudioResult(audioInfos);
             }
         });
     }

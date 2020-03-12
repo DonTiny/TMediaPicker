@@ -49,14 +49,12 @@ public class PhotoLoader implements Runnable {
         }
         Cursor cursor = contentResolver.query(TConstants.PHOTO_URI, TConstants.PHOTO_PROJECTION, selection, selectionArgs, TConstants.PHOTO_SORT_ORDER);
         if (cursor == null) {
-            if (callbacks != null) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callbacks.onError(new Throwable("cursor is null !"));
-                    }
-                });
-            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+                }
+            });
             return;
         }
         photoInfoList.clear();
@@ -90,7 +88,7 @@ public class PhotoLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callbacks.onPhotoResult(photoInfoList);
+                if (callbacks!=null) callbacks.onPhotoResult(photoInfoList);
             }
         });
     }

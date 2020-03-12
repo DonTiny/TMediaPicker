@@ -24,15 +24,15 @@ import java.util.List;
  */
 public class VideoSelectAdapter extends SimpleRecycleViewAdapter<VideoInfo, VideoSelectAdapter.VideoSelectViewHolder> {
     private OnItemClickListener onItemClickListener;
-    private ArrayList<VideoInfo> selectedVideoInfoList;
-    private LinkedList<Integer> refreshPosition;
+    private ArrayList<String> selectVideoIds;
+    private ArrayList<Integer> refreshPosition;
     private int selectLimit;
 
     public VideoSelectAdapter(Context context, List<VideoInfo> videoInfoList, int selectLimit) {
         super(context, videoInfoList);
         this.selectLimit = selectLimit;
-        selectedVideoInfoList = new ArrayList<>();
-        refreshPosition = new LinkedList<>();
+        selectVideoIds = new ArrayList<>();
+        refreshPosition = new ArrayList<>();
     }
 
     @Override
@@ -59,8 +59,8 @@ public class VideoSelectAdapter extends SimpleRecycleViewAdapter<VideoInfo, Vide
 
         public void initView(Context context, final VideoInfo videoInfo, final int position) {
 
-            if (selectedVideoInfoList.indexOf(videoInfo) != -1) {
-                mTv_select.setText(selectedVideoInfoList.indexOf(videoInfo) + 1 + "");
+            if (selectVideoIds.indexOf(videoInfo.getId()) != -1) {
+                mTv_select.setText(selectVideoIds.indexOf(videoInfo.getId()) + 1 + "");
                 mTv_select.setVisibility(View.VISIBLE);
             } else {
                 mTv_select.setVisibility(View.INVISIBLE);
@@ -73,20 +73,20 @@ public class VideoSelectAdapter extends SimpleRecycleViewAdapter<VideoInfo, Vide
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (selectedVideoInfoList.size() == selectLimit && selectedVideoInfoList.indexOf(videoInfo) == -1 && selectLimit != 0) {
+                    if (selectVideoIds.size() == selectLimit && selectVideoIds.indexOf(videoInfo.getId()) == -1 && selectLimit != 0) {
                         return;
                     }
-                    if (selectedVideoInfoList.indexOf(videoInfo) != -1) {
-                        selectedVideoInfoList.remove(videoInfo);
+                    if (selectVideoIds.indexOf(videoInfo.getId()) != -1) {
+                        selectVideoIds.remove(videoInfo.getId());
                         refreshPosition.remove((Integer) position);
                         notifyItemChanged(position);
                     } else {
-                        selectedVideoInfoList.add(videoInfo);
+                        selectVideoIds.add(videoInfo.getId());
                         refreshPosition.add(position);
                     }
                     refreshSelect();
                     if (onItemClickListener != null) {
-                        onItemClickListener.onItemClick(itemView, videoInfo, selectedVideoInfoList.size(), position);
+                        onItemClickListener.onItemClick(itemView, videoInfo, selectVideoIds.size(), position);
                     }
                 }
             });
@@ -101,8 +101,15 @@ public class VideoSelectAdapter extends SimpleRecycleViewAdapter<VideoInfo, Vide
     }
 
     public ArrayList<VideoInfo> getSelectedVideoInfoList() {
+        ArrayList<VideoInfo> selectedVideoInfoList = new ArrayList<>();
+        for (VideoInfo bean : listData) {
+            if (selectVideoIds.indexOf(bean.getId()) != -1) {
+                selectedVideoInfoList.add(bean);
+            }
+        }
         return selectedVideoInfoList;
     }
+
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;

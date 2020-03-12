@@ -197,7 +197,7 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
             finish();
         } else if (id == R.id.tv_confirm || id == R.id.tv_selected) {
             Intent intent = new Intent();
-            intent.putParcelableArrayListExtra(TConstants.INTENT_EXTRA_AUDIO, adapter.getSelectedItem());
+            intent.putParcelableArrayListExtra(TConstants.INTENT_EXTRA_AUDIO, adapter.getSelectedAudioInfoList());
             setResult(RESULT_OK, intent);
             finish();
         }

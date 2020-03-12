@@ -28,15 +28,15 @@ public class AudioSelectAdapter extends SimpleRecycleViewAdapter<AudioInfo, Audi
     private int selectLimit;
 
     private OnItemSelectedClickListener onItemSelectedClickListener;
-    private ArrayList<AudioInfo> selectedVideoInfoList;
-    private LinkedList<Integer> refreshPosition;
+    private ArrayList<String> selectAudioIds;
+    private ArrayList<Integer> refreshPosition;
 
 
     public AudioSelectAdapter(Context context, List<AudioInfo> listData, int selectLimit) {
         super(context, listData);
         this.selectLimit = selectLimit;
-        selectedVideoInfoList = new ArrayList<>();
-        refreshPosition = new LinkedList<>();
+        selectAudioIds = new ArrayList<>();
+        refreshPosition = new ArrayList<>();
     }
 
     @Override
@@ -65,24 +65,24 @@ public class AudioSelectAdapter extends SimpleRecycleViewAdapter<AudioInfo, Audi
         public void initView(Context context, final AudioInfo audioInfo, final int position) {
             setText = new StringBuilder();
             setText.append(audioInfo.getTitle()).append(" - ").append(audioInfo.getArtist());
-            mCb_select.setChecked(selectedVideoInfoList.indexOf(audioInfo) != -1);
+            mCb_select.setChecked(selectAudioIds.indexOf(audioInfo.getId()) != -1);
             mTv_title.setText(setText);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (selectedVideoInfoList.size() == selectLimit && selectedVideoInfoList.indexOf(audioInfo) == -1 && selectLimit != 0) {
+                    if (selectAudioIds.size() == selectLimit && selectAudioIds.indexOf(audioInfo.getId()) == -1 && selectLimit != 0) {
                         return;
                     }
-                    if (selectedVideoInfoList.indexOf(audioInfo) != -1) {
-                        selectedVideoInfoList.remove(audioInfo);
+                    if (selectAudioIds.indexOf(audioInfo.getId()) != -1) {
+                        selectAudioIds.remove(audioInfo.getId());
                         refreshPosition.remove((Integer) position);
                         notifyItemChanged(position);
                     } else {
-                        selectedVideoInfoList.add(audioInfo);
+                        selectAudioIds.add(audioInfo.getId());
                         refreshPosition.add(position);
                     }
                     if (onItemSelectedClickListener != null) {
-                        onItemSelectedClickListener.onItemClick(view, selectedVideoInfoList.size(), audioInfo, position);
+                        onItemSelectedClickListener.onItemClick(view, selectAudioIds.size(), audioInfo, position);
                     }
                     refreshSelect();
                     mCb_select.setChecked(!mCb_select.isChecked());
@@ -98,8 +98,14 @@ public class AudioSelectAdapter extends SimpleRecycleViewAdapter<AudioInfo, Audi
 
     }
 
-    public ArrayList<AudioInfo> getSelectedItem() {
-        return selectedVideoInfoList;
+    public ArrayList<AudioInfo> getSelectedAudioInfoList() {
+        ArrayList<AudioInfo> selectedAudioInfoList = new ArrayList<>();
+        for (AudioInfo bean : listData) {
+            if (selectAudioIds.indexOf(bean.getId()) != -1) {
+                selectedAudioInfoList.add(bean);
+            }
+        }
+        return selectedAudioInfoList;
     }
 
 

@@ -69,7 +69,7 @@ public class MainActivity extends TMediaPickerActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_select_photo:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALL, 0);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALL, 9);
                 break;
             case R.id.btn_select_video:
                 getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALL, 0);

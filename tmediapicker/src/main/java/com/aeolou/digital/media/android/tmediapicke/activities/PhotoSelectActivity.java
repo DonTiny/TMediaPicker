@@ -1,6 +1,7 @@
 package com.aeolou.digital.media.android.tmediapicke.activities;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
@@ -22,6 +24,8 @@ import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
+import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
+import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +36,10 @@ import java.util.List;
  * Email:tg0804013x@gmail.com
  */
 public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks, View.OnClickListener {
-//    private static final String SAVE_SELECTED_PHOTO = "saveSelectedPhoto";
-//    private static final String SAVE_SELECTED_NUMBER = "saveSelectedNumber";
+    private static final String SAVE_SELECTED_PHOTO = "saveSelectedPhoto";
+    private static final String SAVE_SELECTED_PHOTO_NUMBER = "saveSelectedPhotoNumber";
+
+    //    private static final String SAVE_SELECTED_NUMBER = "saveSelectedNumber";
 //    private static final String SAVE_SELECTED_LIMIT = "saveSelectedLimit";
     private List<PhotoInfo> photoInfoList;
     private TextView mTv_error;
@@ -53,13 +59,13 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
     @Override
     protected void onStart() {
         super.onStart();
-        checkPermission();
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        LogUtils.i("-onDestroy");
         tMediaData.clear();
     }
 
@@ -73,17 +79,22 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
     }
 
     @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
     protected int getContentViewLayoutID() {
         return R.layout.activity_photo_select;
     }
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        LogUtils.i("已选择数据init");
         Intent intent = getIntent();
         if (intent == null) {
             finish();
         }
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.PHOTO).build();
         photoInfoList = new ArrayList<>();
         adapter = new PhotoSelectAdapter(this, photoInfoList, selectLimit);
         isShowSelected = getResources().getBoolean(R.bool.tMediaPickerIsShowSelected);
@@ -102,6 +113,8 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         updateUi();
+        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.PHOTO).build();
+
     }
 
     @Override
@@ -126,6 +139,7 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
         mIv_return.setOnClickListener(this);
         mTv_confirm.setOnClickListener(this);
         mTv_selected.setOnClickListener(this);
+        checkPermission();
     }
 
     @Override
@@ -157,6 +171,7 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
         adapter.setListData(this.photoInfoList);
 
     }
+
 
     @Override
     public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList) {
@@ -217,11 +232,4 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
     }
 
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        outState.putParcelableArrayList(SAVE_SELECTED_PHOTO, adapter.getSelectedPhotoInfoList());
-//        outState.putInt(SAVE_SELECTED_NUMBER, selected);
-//
-//        super.onSaveInstanceState(outState);
-//    }
 }

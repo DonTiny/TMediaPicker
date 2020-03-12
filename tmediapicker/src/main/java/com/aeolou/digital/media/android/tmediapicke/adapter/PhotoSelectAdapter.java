@@ -15,6 +15,7 @@ import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,15 +26,15 @@ import java.util.List;
  */
 public class PhotoSelectAdapter extends SimpleRecycleViewAdapter<PhotoInfo, PhotoSelectAdapter.PhotoSelectViewHolder> {
     private OnItemClickListener onItemClickListener;
-    private ArrayList<PhotoInfo> selectedPhotoInfoList;
-    private LinkedList<Integer> refreshPosition;
+    private ArrayList<String> selectPhotoIds;
+    private ArrayList<Integer> refreshPosition;
     private int selectLimit;
 
     public PhotoSelectAdapter(Context context, List<PhotoInfo> photoInfoList, int selectLimit) {
         super(context, photoInfoList);
         this.selectLimit = selectLimit;
-        selectedPhotoInfoList = new ArrayList<>();
-        refreshPosition = new LinkedList<>();
+        selectPhotoIds = new ArrayList<>();
+        refreshPosition = new ArrayList<>();
     }
 
     @Override
@@ -58,8 +59,8 @@ public class PhotoSelectAdapter extends SimpleRecycleViewAdapter<PhotoInfo, Phot
 
         public void initView(Context context, final PhotoInfo photoInfo, final int position) {
 
-            if (selectedPhotoInfoList.indexOf(photoInfo) != -1) {
-                mTv_select.setText(selectedPhotoInfoList.indexOf(photoInfo) + 1 + "");
+            if (selectPhotoIds.indexOf(photoInfo.getId()) != -1) {
+                mTv_select.setText(selectPhotoIds.indexOf(photoInfo.getId()) + 1 + "");
                 mTv_select.setVisibility(View.VISIBLE);
             } else {
                 mTv_select.setVisibility(View.INVISIBLE);
@@ -73,20 +74,20 @@ public class PhotoSelectAdapter extends SimpleRecycleViewAdapter<PhotoInfo, Phot
                 @Override
                 public void onClick(View view) {
 
-                    if (selectedPhotoInfoList.size() == selectLimit && selectedPhotoInfoList.indexOf(photoInfo) == -1 && selectLimit != 0) {
+                    if (selectPhotoIds.size() == selectLimit && selectPhotoIds.indexOf(photoInfo.getId()) == -1 && selectLimit != 0) {
                         return;
                     }
-                    if (selectedPhotoInfoList.indexOf(photoInfo) != -1) {
-                        selectedPhotoInfoList.remove(photoInfo);
+                    if (selectPhotoIds.indexOf(photoInfo.getId()) != -1) {
+                        selectPhotoIds.remove(photoInfo.getId());
                         refreshPosition.remove((Integer) position);
                         notifyItemChanged(position);
                     } else {
-                        selectedPhotoInfoList.add(photoInfo);
+                        selectPhotoIds.add(photoInfo.getId());
                         refreshPosition.add(position);
                     }
                     refreshSelect();
                     if (onItemClickListener != null) {
-                        onItemClickListener.onItemClick(itemView, photoInfo, selectedPhotoInfoList.size(), position);
+                        onItemClickListener.onItemClick(itemView, photoInfo, selectPhotoIds.size(), position);
                     }
                 }
             });
@@ -100,13 +101,17 @@ public class PhotoSelectAdapter extends SimpleRecycleViewAdapter<PhotoInfo, Phot
 
     }
 
-    public void setSelectedPhotoInfoList(ArrayList<PhotoInfo> selectedPhotoInfoList) {
-        this.selectedPhotoInfoList = selectedPhotoInfoList;
-    }
 
     public ArrayList<PhotoInfo> getSelectedPhotoInfoList() {
+        ArrayList<PhotoInfo> selectedPhotoInfoList = new ArrayList<>();
+        for (PhotoInfo bean : listData) {
+            if (selectPhotoIds.indexOf(bean.getId()) != -1) {
+                selectedPhotoInfoList.add(bean);
+            }
+        }
         return selectedPhotoInfoList;
     }
+
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;

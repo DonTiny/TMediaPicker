@@ -40,14 +40,12 @@ public class PhotoAlbumLoader implements Runnable {
         Cursor cursor = contentResolver.query(TConstants.PHOTO_URI, TConstants.PHOTO_ALBUM_PROJECTION,
                 null, null, TConstants.PHOTO_SORT_ORDER);
         if (cursor == null) {
-            if (callbacks != null) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callbacks.onError(new Throwable("cursor is null !"));
-                    }
-                });
-            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+                }
+            });
             return;
         }
         ArrayList<PhotoAlbumInfo> temp = new ArrayList<>(cursor.getCount());
@@ -79,7 +77,7 @@ public class PhotoAlbumLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callbacks.onPhotoAlbumResult(photoAlbumInfoList);
+                if (callbacks!=null) callbacks.onPhotoAlbumResult(photoAlbumInfoList);
             }
         });
     }

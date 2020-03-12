@@ -51,7 +51,6 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
     @Override
     protected void onStart() {
         super.onStart();
-        checkPermission();
     }
 
 
@@ -81,9 +80,8 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
         if (intent == null) {
             finish();
         }
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.VIDEO).build();
         videoInfoList = new ArrayList<>();
-        adapter = new VideoSelectAdapter(this, videoInfoList,selectLimit);
+        adapter = new VideoSelectAdapter(this, videoInfoList, selectLimit);
         isShowSelected = getResources().getBoolean(R.bool.tMediaPickerIsShowSelected);
     }
 
@@ -100,8 +98,8 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         updateUi();
+        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.VIDEO).build();
     }
-
 
     @Override
     protected void initData() {
@@ -125,6 +123,7 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
         mIv_return.setOnClickListener(this);
         mTv_confirm.setOnClickListener(this);
         mTv_selected.setOnClickListener(this);
+        checkPermission();
     }
 
     @Override

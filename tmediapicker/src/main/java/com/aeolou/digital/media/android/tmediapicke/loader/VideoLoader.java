@@ -48,8 +48,14 @@ public class VideoLoader implements Runnable {
             selectionArgs = new String[]{bucketName};
         }
         Cursor cursor = contentResolver.query(TConstants.VIDEO_URI, TConstants.VIDEO_PROJECTION, selection, selectionArgs, TConstants.VIDEO_SORT_ORDER);
+
         if (cursor == null) {
-            if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+                }
+            });
             return;
         }
         videoInfoList.clear();
@@ -86,7 +92,7 @@ public class VideoLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callbacks.onVideoResult(videoInfoList);
+                if (callbacks!=null) callbacks.onVideoResult(videoInfoList);
             }
         });
     }

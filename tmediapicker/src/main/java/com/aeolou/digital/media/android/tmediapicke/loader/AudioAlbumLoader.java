@@ -44,12 +44,15 @@ public class AudioAlbumLoader implements Runnable {
     @Override
     public void run() {
         Cursor cursor = contentResolver.query(TConstants.AUDIO_URI, TConstants.AUDIO_ALBUM_PROJECTION,
-                        null, null, TConstants.AUDIO_SORT_ORDER);
+                null, null, TConstants.AUDIO_SORT_ORDER);
         if (cursor == null) {
-            if (callbacks != null) {
-                callbacks.onError(new Throwable("cursor is null !"));
-            }
-            return ;
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+                }
+            });
+            return;
         }
         audioAlbumInfoList.clear();
         ArrayList<AudioAlbumInfo> temp = new ArrayList<>(cursor.getCount());
@@ -83,7 +86,7 @@ public class AudioAlbumLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callbacks.onAudioAlbumResult(audioAlbumInfoList);
+                if (callbacks!=null) callbacks.onAudioAlbumResult(audioAlbumInfoList);
             }
         });
     }

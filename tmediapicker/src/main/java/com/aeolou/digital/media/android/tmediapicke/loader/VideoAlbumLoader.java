@@ -44,9 +44,12 @@ public class VideoAlbumLoader implements Runnable {
         Cursor cursor = contentResolver.query(TConstants.VIDEO_URI, TConstants.VIDEO_ALBUM_PROJECTION,
                 null, null, TConstants.VIDEO_SORT_ORDER);
         if (cursor == null) {
-            if (callbacks != null) {
-                callbacks.onError(new Throwable("cursor is null !"));
-            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (callbacks != null) callbacks.onError(new Throwable("cursor is null !"));
+                }
+            });
             return;
         }
         videoAlbumInfoList.clear();
@@ -81,7 +84,7 @@ public class VideoAlbumLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callbacks.onVideoAlbumResult(videoAlbumInfoList);
+                if (callbacks!=null)  callbacks.onVideoAlbumResult(videoAlbumInfoList);
             }
         });
     }
