@@ -52,7 +52,6 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
     @Override
     protected void onStart() {
         super.onStart();
-        checkPermission();
     }
 
 
@@ -126,6 +125,8 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
         mIv_return.setOnClickListener(this);
         mTv_confirm.setOnClickListener(this);
         mTv_selected.setOnClickListener(this);
+        checkPermission();
+
     }
 
     @Override

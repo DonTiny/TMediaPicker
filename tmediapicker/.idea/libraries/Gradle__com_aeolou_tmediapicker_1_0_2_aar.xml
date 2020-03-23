@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.aeolou:tmediapicker:1.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e8710205a87b9d606a894eb1bf567448/tmediapicker-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e8710205a87b9d606a894eb1bf567448/tmediapicker-1.0.2/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/20ca03b29126611ff4f02ffcb807564b0b78ee40/tmediapicker-1.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

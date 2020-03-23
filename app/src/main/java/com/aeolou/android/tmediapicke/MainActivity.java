@@ -84,7 +84,7 @@ public class MainActivity extends TMediaPickerActivity implements View.OnClickLi
                 getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALBUM, 0);
                 break;
             case R.id.btn_select_audio_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALBUM, 1);
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALBUM, 9);
                 break;
         }
     }
