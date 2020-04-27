@@ -5,7 +5,8 @@ import androidx.annotation.NonNull;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.AudioCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.PhotoCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 
 /**
  * Author: Aeolou
@@ -72,6 +73,11 @@ public class TMediaData implements MediaOperations {
     public void setAudioCallbacks(AudioCallbacks audioCallbacks) {
         mediaCollection.setAudioCallbacks(audioCallbacks);
 
+    }
+
+    @Override
+    public void setLoaderStorageType(LoaderStorageType loaderStorageType) {
+        mediaCollection.setLoaderStorageType(loaderStorageType);
     }
 
     @Override

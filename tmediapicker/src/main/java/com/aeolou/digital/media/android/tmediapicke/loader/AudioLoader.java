@@ -3,13 +3,15 @@ package com.aeolou.digital.media.android.tmediapicke.loader;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.text.TextUtils;
 
 import com.aeolou.digital.media.android.tmediapicke.callbacks.AudioCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
+import com.aeolou.digital.media.android.tmediapicke.models.BaseMediaInfo;
+import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,19 +22,23 @@ import java.util.List;
  * Date:2019/12/23 0003
  * Email:tg0804013x@gmail.com
  */
-public class AudioLoader implements Runnable {
+public class AudioLoader extends BaseMediaLoader implements Runnable {
     private ContentResolver contentResolver;
-    private List<AudioInfo> audioInfos;
+    private List<AudioInfo> audioInfoList;
     private AudioCallbacks callbacks;
     private String bucketName;
     private Handler handler;
+    private LoaderStorageType loaderStorageType;
+    private Context context;
 
-    public AudioLoader(ContentResolver contentResolver, String bucketName, AudioCallbacks callbacks, Handler handler) {
-        this.contentResolver = contentResolver;
+    public AudioLoader(Context context, LoaderStorageType loaderStorageType, String bucketName, AudioCallbacks callbacks, Handler handler) {
+        this.context = context;
+        this.contentResolver = context.getContentResolver();
+        this.loaderStorageType = loaderStorageType;
         this.callbacks = callbacks;
         this.bucketName = bucketName;
         this.handler = handler;
-        audioInfos = new ArrayList<>();
+        audioInfoList = new ArrayList<>();
     }
 
 
@@ -45,7 +51,16 @@ public class AudioLoader implements Runnable {
 
     @Override
     public void run() {
-        Cursor cursor = contentResolver.query(TConstants.AUDIO_URI, null, null, null, TConstants.AUDIO_SORT_ORDER);
+        String selection;
+        String[] selectionArgs;
+        if (TextUtils.isEmpty(bucketName)) {
+            selection = getSelectionType(context, loaderStorageType);
+            selectionArgs = null;
+        } else {
+            selection = TConstants.AUDIO_PROJECTION[5] + " LIKE "+" '%" + bucketName + "%'"+" AND " + getSelectionType(context, loaderStorageType);
+            selectionArgs = null;
+        }
+        Cursor cursor = contentResolver.query(TConstants.AUDIO_URI, null, selection, selectionArgs, TConstants.AUDIO_SORT_ORDER);
         if (cursor == null) {
             handler.post(new Runnable() {
                 @Override
@@ -55,7 +70,9 @@ public class AudioLoader implements Runnable {
             });
             return;
         }
-        audioInfos.clear();
+        LogUtils.i("要加载的同名" + bucketName + cursor.getCount());
+
+        audioInfoList.clear();
         if (cursor.moveToLast()) {
             File file;
             AudioInfo audioInfo;
@@ -63,9 +80,9 @@ public class AudioLoader implements Runnable {
             do {
                 file = new File(cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[5])));
                 bucketNameTmp = getBucketName(cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[5])), cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[2])));
-                audioInfo = new AudioInfo();
                 if (!TextUtils.isEmpty(bucketName) && !bucketNameTmp.equals(bucketName)) continue;
                 if (file.exists()) {
+                    audioInfo = new AudioInfo();
                     audioInfo.setId(cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[0])));
                     audioInfo.setTitle(cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[1])));
                     audioInfo.setDisplayName(cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[2])));
@@ -80,7 +97,9 @@ public class AudioLoader implements Runnable {
                     audioInfo.setDateAdded(cursor.getLong(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[11])));
                     audioInfo.setDateModified(cursor.getLong(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[12])));
                     audioInfo.setMimeType(cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_PROJECTION[13])));
-                    audioInfos.add(audioInfo);
+                    audioInfo.setType(BaseMediaInfo.AUDIO);
+                    audioInfoList.add(audioInfo);
+
                 }
             } while (cursor.moveToPrevious());
         }
@@ -88,7 +107,7 @@ public class AudioLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                if (callbacks!=null) callbacks.onAudioResult(audioInfos);
+                if (callbacks != null) callbacks.onAudioResult(audioInfoList, loaderStorageType);
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.aeolou.digital.media.android.tmediapicke.callbacks;
 
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoInfo;

@@ -1,5 +1,6 @@
 package com.aeolou.digital.media.android.tmediapicke.callbacks;
 
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
 
@@ -13,9 +14,9 @@ import java.util.List;
 public interface PhotoCallbacks extends MediaBaseCallbacks {
 
     //返回所有照片数据
-    void onPhotoResult(List<PhotoInfo> photoInfoList);
+    void onPhotoResult(List<PhotoInfo> photoInfoList, LoaderStorageType loaderStorageType);
 
     //返回相册数据
-    void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList);
+    void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList,LoaderStorageType loaderStorageType);
 
 }

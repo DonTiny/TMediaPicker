@@ -1,7 +1,6 @@
 package com.aeolou.digital.media.android.tmediapicke.models;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Author: Aeolou
@@ -15,9 +14,21 @@ public class PhotoInfo extends BaseMediaInfo {
     private String bucketId;//该媒体项目的主要存储区ID
     private String description;//说明
     private String miniThumbMagic;//在API级别29中已弃用。所有缩略图应通过来获取 MediaStore.Images.Thumbnails#getThumbnail，因为不再支持该值。
+    private String thumbnailsData;//缩略图
 
     public PhotoInfo() {
         super();
+    }
+
+    public PhotoInfo(String id, String title, String displayName, String data, long size, long dateAdded, long dateModified, long dateTaken, String mimeType, int type, int height, int width, String bucketDisplayName, String bucketId, String description, String miniThumbMagic, String thumbnailsData) {
+        super(id, title, displayName, data, size, dateAdded, dateModified, dateTaken, mimeType, type);
+        this.height = height;
+        this.width = width;
+        this.bucketDisplayName = bucketDisplayName;
+        this.bucketId = bucketId;
+        this.description = description;
+        this.miniThumbMagic = miniThumbMagic;
+        this.thumbnailsData = thumbnailsData;
     }
 
     public int getHeight() {
@@ -41,6 +52,14 @@ public class PhotoInfo extends BaseMediaInfo {
 
     public void setBucketDisplayName(String bucketDisplayName) {
         this.bucketDisplayName = bucketDisplayName;
+    }
+
+    public String getThumbnailsData() {
+        return thumbnailsData;
+    }
+
+    public void setThumbnailsData(String thumbnailsData) {
+        this.thumbnailsData = thumbnailsData;
     }
 
     public String getBucketId() {
@@ -71,7 +90,7 @@ public class PhotoInfo extends BaseMediaInfo {
         this.description = description;
     }
 
-    public static final Parcelable.Creator<PhotoInfo> CREATOR = new Parcelable.Creator<PhotoInfo>() {
+    public static final Creator<PhotoInfo> CREATOR = new Creator<PhotoInfo>() {
         @Override
         public PhotoInfo createFromParcel(Parcel source) {
             return new PhotoInfo(source);
@@ -97,6 +116,8 @@ public class PhotoInfo extends BaseMediaInfo {
         out.writeString(bucketId);
         out.writeString(miniThumbMagic);
         out.writeString(description);
+        out.writeString(thumbnailsData);
+
     }
 
     private PhotoInfo(Parcel in) {
@@ -107,5 +128,7 @@ public class PhotoInfo extends BaseMediaInfo {
         bucketId = in.readString();
         miniThumbMagic = in.readString();
         description = in.readString();
+        thumbnailsData = in.readString();
+
     }
 }

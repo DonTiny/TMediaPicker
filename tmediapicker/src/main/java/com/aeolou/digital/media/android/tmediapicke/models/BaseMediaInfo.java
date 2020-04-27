@@ -3,12 +3,18 @@ package com.aeolou.digital.media.android.tmediapicke.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.IntDef;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * Author: Aeolou
  * Date:2019/12/23 0003
  * Email:tg0804013x@gmail.com
  */
 public class BaseMediaInfo implements Parcelable {
+    public static final int PHOTO = 101, VIDEO = 102, AUDIO = 103;
     private String id;
     private String title;//标题
     private String displayName;//媒体项目的显示名称
@@ -18,8 +24,22 @@ public class BaseMediaInfo implements Parcelable {
     private long dateModified;//媒体项目上次修改的时间
     private long dateTaken;//媒体项目的获取时间
     private String mimeType;//媒体项目的MIME类型
+    private int type;
 
     public BaseMediaInfo() {
+    }
+
+    public BaseMediaInfo(String id, String title, String displayName, String data, long size, long dateAdded, long dateModified, long dateTaken, String mimeType, int type) {
+        this.id = id;
+        this.title = title;
+        this.displayName = displayName;
+        this.data = data;
+        this.size = size;
+        this.dateAdded = dateAdded;
+        this.dateModified = dateModified;
+        this.dateTaken = dateTaken;
+        this.mimeType = mimeType;
+        this.type = type;
     }
 
     public String getId() {
@@ -62,7 +82,14 @@ public class BaseMediaInfo implements Parcelable {
         this.size = size;
     }
 
+    @Type
+    public int getType() {
+        return type;
+    }
 
+    public void setType(@Type int type) {
+        this.type = type;
+    }
 
     public long getDateAdded() {
         return dateAdded;
@@ -98,7 +125,7 @@ public class BaseMediaInfo implements Parcelable {
     }
 
 
-    public static final Parcelable.Creator<BaseMediaInfo> CREATOR = new Parcelable.Creator<BaseMediaInfo>() {
+    public static final Creator<BaseMediaInfo> CREATOR = new Creator<BaseMediaInfo>() {
         @Override
         public BaseMediaInfo createFromParcel(Parcel source) {
             return new BaseMediaInfo(source);
@@ -126,6 +153,7 @@ public class BaseMediaInfo implements Parcelable {
         out.writeLong(dateModified);
         out.writeLong(dateTaken);
         out.writeString(mimeType);
+        out.writeInt(type);
     }
 
     protected BaseMediaInfo(Parcel in) {
@@ -138,5 +166,11 @@ public class BaseMediaInfo implements Parcelable {
         dateModified = in.readLong();
         dateTaken = in.readLong();
         mimeType = in.readString();
+        type = in.readInt();
+    }
+
+    @IntDef({PHOTO, VIDEO, AUDIO})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Type {
     }
 }

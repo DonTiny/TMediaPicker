@@ -14,12 +14,15 @@ import com.aeolou.digital.media.android.tmediapicke.R;
 import com.aeolou.digital.media.android.tmediapicke.adapter.VideoAlbumSelectAdapter;
 import com.aeolou.digital.media.android.tmediapicke.base.TBaseActivity;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoInfo;
+import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
+import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +68,7 @@ public class VideoAlbumActivity extends TBaseActivity implements VideoCallbacks,
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.VIDEO_ALBUM).build();
+        tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.VIDEO_ALBUM).build();
         videoAlbumInfoList = new ArrayList<>();
     }
 
@@ -142,12 +145,13 @@ public class VideoAlbumActivity extends TBaseActivity implements VideoCallbacks,
     }
 
     @Override
-    public void onVideoResult(List<VideoInfo> videoInfoList) {
+    public void onVideoResult(List<VideoInfo> videoInfoList, LoaderStorageType loaderStorageType) {
 
     }
 
     @Override
-    public void onVideoAlbumResult(List<VideoAlbumInfo> videoAlbumInfoList) {
+    public void onVideoAlbumResult(List<VideoAlbumInfo> videoAlbumInfoList, LoaderStorageType loaderStorageType) {
+        LogUtils.i("视频数据" + GsonUtil.gsonString(videoAlbumInfoList));
         this.videoAlbumInfoList = videoAlbumInfoList;
         mPb_progress.setVisibility(View.INVISIBLE);
         mRecycle_album_select.setVisibility(View.VISIBLE);

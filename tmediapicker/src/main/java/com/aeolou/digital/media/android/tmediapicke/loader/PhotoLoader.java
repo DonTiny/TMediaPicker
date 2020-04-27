@@ -3,16 +3,20 @@ package com.aeolou.digital.media.android.tmediapicke.loader;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.text.TextUtils;
 
 import com.aeolou.digital.media.android.tmediapicke.callbacks.PhotoCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
+import com.aeolou.digital.media.android.tmediapicke.models.BaseMediaInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
+import com.aeolou.digital.media.android.tmediapicke.utils.FileStorageUtils;
+import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,15 +24,19 @@ import java.util.List;
  * Date:2019/12/23 0003
  * Email:tg0804013x@gmail.com
  */
-public class PhotoLoader implements Runnable {
+public class PhotoLoader extends BaseMediaLoader implements Runnable {
     private ContentResolver contentResolver;
     private List<PhotoInfo> photoInfoList;
     private PhotoCallbacks callbacks;
     private String bucketName;
     private Handler handler;
+    private LoaderStorageType loaderStorageType;
+    private Context context;
 
-    public PhotoLoader(ContentResolver contentResolver, String bucketName, PhotoCallbacks callbacks, Handler handler) {
-        this.contentResolver = contentResolver;
+    public PhotoLoader(Context context, LoaderStorageType loaderStorageType, String bucketName, PhotoCallbacks callbacks, Handler handler) {
+        this.context = context;
+        this.contentResolver = context.getContentResolver();
+        this.loaderStorageType = loaderStorageType;
         this.callbacks = callbacks;
         this.bucketName = bucketName;
         this.handler = handler;
@@ -41,11 +49,13 @@ public class PhotoLoader implements Runnable {
         String selection;
         String[] selectionArgs;
         if (TextUtils.isEmpty(bucketName)) {
-            selection = null;
+            selection = getSelectionType(context, loaderStorageType);
             selectionArgs = null;
         } else {
-            selection = TConstants.PHOTO_PROJECTION[5] + " =?";
+            LogUtils.i("当前类型" + loaderStorageType.toString());
+            selection = TConstants.PHOTO_PROJECTION[5] + " LIKE ? AND " + getSelectionType(context, loaderStorageType);
             selectionArgs = new String[]{bucketName};
+
         }
         Cursor cursor = contentResolver.query(TConstants.PHOTO_URI, TConstants.PHOTO_PROJECTION, selection, selectionArgs, TConstants.PHOTO_SORT_ORDER);
         if (cursor == null) {
@@ -61,10 +71,14 @@ public class PhotoLoader implements Runnable {
         if (cursor.moveToLast()) {
             File file;
             PhotoInfo photoInfo;
+            long startTime = new Date().getTime();
+            LogUtils.i("开始遍历数据" + startTime);
+            LogUtils.i("遍历数据项" + cursor.getCount());
+            LogUtils.i("遍首项项" + cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[3])));
             do {
                 file = new File(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[3])));
-                photoInfo = new PhotoInfo();
                 if (file.exists()) {
+                    photoInfo = new PhotoInfo();
                     photoInfo.setId(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[0])));
                     photoInfo.setTitle(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[1])));
                     photoInfo.setDisplayName(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[2])));
@@ -80,7 +94,10 @@ public class PhotoLoader implements Runnable {
                     photoInfo.setMimeType(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[12])));
                     photoInfo.setDescription(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[13])));
                     photoInfo.setMiniThumbMagic(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[14])));
+                    photoInfo.setThumbnailsData(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[15])));
+                    photoInfo.setType(BaseMediaInfo.PHOTO);
                     photoInfoList.add(photoInfo);
+
                 }
             } while (cursor.moveToPrevious());
         }
@@ -88,8 +105,9 @@ public class PhotoLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                if (callbacks!=null) callbacks.onPhotoResult(photoInfoList);
+                if (callbacks != null) callbacks.onPhotoResult(photoInfoList, loaderStorageType);
             }
         });
     }
+
 }

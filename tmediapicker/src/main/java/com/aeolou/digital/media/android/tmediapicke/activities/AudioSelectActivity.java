@@ -18,12 +18,14 @@ import com.aeolou.digital.media.android.tmediapicke.adapter.AudioSelectAdapter;
 import com.aeolou.digital.media.android.tmediapicke.adapter.RecycleViewDivider;
 import com.aeolou.digital.media.android.tmediapicke.base.TBaseActivity;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.AudioCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
+import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +79,7 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.AUDIO).build();
+        tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.AUDIO).build();
         audioInfoList = new ArrayList<>();
         adapter = new AudioSelectAdapter(this, audioInfoList,selectLimit);
         isShowSelected = getResources().getBoolean(R.bool.tMediaPickerIsShowSelected);
@@ -163,6 +165,7 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
         if (audioAlbumInfo == null) {
             tMediaData.load();
         } else {
+            LogUtils.i("要加载的同名"+audioAlbumInfo.getBucketName());
             tMediaData.loadAlbum(audioAlbumInfo.getBucketName());
         }
     }
@@ -206,7 +209,7 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
 
 
     @Override
-    public void onAudioResult(List<AudioInfo> audioInfoList) {
+    public void onAudioResult(List<AudioInfo> audioInfoList, LoaderStorageType loaderStorageType) {
         this.audioInfoList = audioInfoList;
         mPb_progress.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
@@ -214,7 +217,7 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void onAudioAlbumResult(List<AudioAlbumInfo> audioAlbumInfoList) {
+    public void onAudioAlbumResult(List<AudioAlbumInfo> audioAlbumInfoList, LoaderStorageType loaderStorageType) {
 
     }
 }

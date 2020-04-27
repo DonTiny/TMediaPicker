@@ -16,8 +16,9 @@ import com.aeolou.digital.media.android.tmediapicke.R;
 import com.aeolou.digital.media.android.tmediapicke.adapter.VideoSelectAdapter;
 import com.aeolou.digital.media.android.tmediapicke.base.TBaseActivity;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoAlbumInfo;
@@ -98,7 +99,7 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         updateUi();
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.VIDEO).build();
+        tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.VIDEO).build();
     }
 
     @Override
@@ -202,7 +203,7 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
     }
 
     @Override
-    public void onVideoResult(List<VideoInfo> videoInfoList) {
+    public void onVideoResult(List<VideoInfo> videoInfoList, LoaderStorageType loaderStorageType) {
         this.videoInfoList = videoInfoList;
         mPb_progress.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
@@ -210,7 +211,7 @@ public class VideoSelectActivity extends TBaseActivity implements VideoCallbacks
     }
 
     @Override
-    public void onVideoAlbumResult(List<VideoAlbumInfo> videoAlbumInfoList) {
+    public void onVideoAlbumResult(List<VideoAlbumInfo> videoAlbumInfoList, LoaderStorageType loaderStorageType) {
 
     }
 }

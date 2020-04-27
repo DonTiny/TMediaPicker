@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -19,7 +20,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="dc001420911187b1c4c" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="8055c952" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -29,105 +30,113 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaCollection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2100">
+              <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../app/src/main/java/com/aeolou/android/tmediapicke/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
+            <state relative-caret-position="309">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/activities/TMediaPickerActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="36" column="83" selection-start-line="36" selection-start-column="83" selection-end-line="36" selection-end-column="83" />
+            <state relative-caret-position="482">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/manager/TMediaPickerImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoAlbumLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="450">
+              <caret line="33" selection-start-line="33" selection-end-line="36" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/BaseMediaLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="19" column="103" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="103" />
               <folding>
-                <element signature="e#1338#1339#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://F:/Sdk/platforms/android-29/android.jar!/android/content/Intent.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioAlbumActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8675">
-              <caret line="378" column="44" selection-start-line="378" selection-start-column="44" selection-end-line="378" selection-end-column="44" />
+            <state relative-caret-position="450">
+              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/manager/TMediaInvocationHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioSelectActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            <state relative-caret-position="3375">
+              <caret line="167" column="27" selection-start-line="167" selection-end-line="168" />
               <folding>
-                <element signature="e#426#427#0" expanded="true" />
-                <element signature="e#474#475#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/manager/TMediaPicker.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="-568">
+              <caret line="64" column="96" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoSelectActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/helpers/TConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2725">
-              <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="26" />
-              <folding>
-                <element signature="e#2491#2492#0" expanded="true" />
-                <element signature="e#2522#2523#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2450">
+              <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoSelectActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioAlbumLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2425">
-              <caret line="125" column="25" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="25" />
-              <folding>
-                <element signature="e#1954#1955#0" expanded="true" />
-                <element signature="e#1985#1986#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="725">
+              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_audio_select.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -144,9 +153,22 @@
       <find>permissionGranted</find>
       <find>heckPermission()</find>
       <find>checkPermission()</find>
+      <find>photoInfo</find>
+      <find>videoInfo</find>
+      <find>bucketName</find>
+      <find>photoInfo.getData()</find>
+      <find>mContext.get()</find>
+      <find>TMediaDataBuilder(this)</find>
+      <find>new TMediaDataBuilder()</find>
+      <find>tmp</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>videoInfo</replace>
+      <replace>audioInfo</replace>
+      <replace>path</replace>
+      <replace>mContext</replace>
+      <replace>TMediaDataBuilder()</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\TangGang\Maintain\TMediaPicker\app</dir>
@@ -158,31 +180,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioAlbumLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoAlbumLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoAlbumLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoSelectActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoSelectActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaCollection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/PhotoSelectAdapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/VideoSelectAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/AudioSelectAdapter.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/../app/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioSelectActivity.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/com/aeolou/android/tmediapicke/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/utils/FileStorageUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/BaseAlbumInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/VideoInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/MediaLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/MediaAlbumLoader.java" />
+        <option value="$PROJECT_DIR$/../app/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/helpers/TConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/PhotoSelectAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/VideoSelectAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/BaseMediaInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/PhotoInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/provider/ContextProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaDataBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/provider/ApplicationContextProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/provider/ContextManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/receiver/ScanSdReceiver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/BaseMediaAlbumLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaCollection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaOperations.java" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/VideoCallbacks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/PhotoCallbacks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoAlbumLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioAlbumActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/AudioCallbacks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoSelectActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioAlbumLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/MediaSelectResultCallbacks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoSelectActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoAlbumActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/TMediaPickerActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoAlbumActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoAlbumLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/BaseMediaLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioSelectActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoLoader.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="105" />
-    <option name="y" value="28" />
+    <option name="y" value="8" />
     <option name="width" value="1713" />
-    <option name="height" value="993" />
+    <option name="height" value="1013" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -190,50 +237,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="aeolou" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="aeolou" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="aeolou" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="tmediapicke" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
               <item name="tmediapicker" type="feadf853:AndroidModuleNode" />
             </path>
             <path>
@@ -302,7 +313,7 @@
               <item name="media" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="tmediapicke" type="462c0819:PsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="loader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TMediaPicker" type="1abcf292:AndroidViewProjectNode" />
@@ -312,18 +323,24 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="8055c952" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-12T07:17:34.753Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="dc001420911187b1c4c" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-24T03:35:07.753Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="F:/Sdk" />
     <property name="last_opened_file_path" value="F:/work/android-app-frameo-smart-electronic-photo-frame/QiuYuFrameAndroidMobile" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.aeolou.digital.media.android.tmediapicke.manager" />
+      <recent name="com.aeolou.digital.media.android.tmediapicke.loader" />
+      <recent name="com.aeolou.digital.media.android.tmediapicke.models" />
+      <recent name="com.aeolou.digital.media.android.tmediapicke.helpers" />
+      <recent name="com.aeolou.digital.media.android.tmediapicke.utils" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -413,11 +430,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23507462" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2153518" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -426,372 +442,448 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.032467533" />
+      <window_info anchor="bottom" id="Logcat" order="1" visible="true" weight="0.2548807" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Find" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.063921995" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="6" visible="true" weight="0.13976164" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="6" weight="0.13774404" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" weight="0.5932755" />
       <window_info anchor="bottom" id="Run" order="8" />
       <window_info anchor="bottom" id="Debug" order="9" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32995737" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18976545" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="1" visible="true" weight="0.35683298" />
+      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.063921995" />
+      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="6" weight="0.345987" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.5932755" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32995737" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.1/e9225976ba03a90371fe3b8a544a0e7d7a1f11ef/tmediapicker-1.0.1-sources.jar!/com/aeolou/digital/media/android/tmediapicke/utils/GsonUtil.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.0.0/2151d26c3b241f0a887f2dadb9ab091649fcf020/recyclerview-1.0.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_audio_select.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="7068" column="26" selection-start-line="7068" selection-start-column="26" selection-end-line="7068" selection-end-column="26" />
-          <folding>
-            <element signature="e#305127#305128#0" expanded="true" />
-            <element signature="e#305178#305179#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="250">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/Sdk/sources/android-28/android/app/Activity.java">
+    <entry file="file://F:/Sdk/sources/android-29/android/content/Intent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="1130" column="19" selection-start-line="1130" selection-start-column="19" selection-end-line="1130" selection-end-column="19" />
+        <state relative-caret-position="450">
+          <caret line="1202" column="23" lean-forward="true" selection-start-line="1202" selection-start-column="23" selection-end-line="1202" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoAlbumActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/AudioAlbumInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        <state relative-caret-position="250">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/utils/LogUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/BaseAlbumInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+        <state relative-caret-position="527">
+          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#808#809#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="94" column="76" selection-start-line="94" selection-start-column="76" selection-end-line="94" selection-end-column="76" />
-          <folding>
-            <element signature="e#1746#1953#0" expanded="true" />
-            <element signature="e#1952#1953#0" expanded="true" />
-            <element signature="e#4566#4737#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoAlbumLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="86" column="37" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
-          <folding>
-            <element signature="e#1501#1708#0" expanded="true" />
-            <element signature="e#1707#1708#0" expanded="true" />
-            <element signature="e#3266#3463#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="90" column="76" selection-start-line="90" selection-start-column="76" selection-end-line="90" selection-end-column="76" />
-          <folding>
-            <element signature="e#1745#1952#0" expanded="true" />
-            <element signature="e#1951#1952#0" expanded="true" />
-            <element signature="e#4218#4389#0" expanded="true" />
-            <element signature="e#4388#4389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoAlbumLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="79" column="37" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
-          <folding>
-            <element signature="e#1354#1561#0" expanded="true" />
-            <element signature="e#1560#1561#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/LoaderMediaType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
-          <folding>
-            <element signature="e#1621#1828#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#4280#4448#0" expanded="true" />
-            <element signature="e#4447#4448#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioAlbumLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="62" column="24" lean-forward="true" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
-          <folding>
-            <element signature="e#1592#1799#0" expanded="true" />
-            <element signature="e#1798#1799#0" expanded="true" />
-            <element signature="e#3172#3349#0" expanded="true" />
-            <element signature="e#3348#3349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoAlbumActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/SimpleRecycleViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/PhotoInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/BaseMediaInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/AudioInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Sdk/sources/android-28/java/util/LinkedHashMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/VideoInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="562" column="18" selection-start-line="562" selection-start-column="18" selection-end-line="562" selection-end-column="18" />
+        <state relative-caret-position="250">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/helpers/LoaderStorageType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="175">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/PhotoSelectAdapter.java">
+    <entry file="jar://F:/Sdk/platforms/android-28/android.jar!/android/database/Cursor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="104" column="3" selection-start-line="104" selection-start-column="3" selection-end-line="113" />
+        <state relative-caret-position="231">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/VideoSelectAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/utils/LogUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="105" column="53" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
+        <state relative-caret-position="133">
+          <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaCollection.java">
+    <entry file="file://$PROJECT_DIR$/../app/src/main/java/com/aeolou/android/tmediapicke/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
-          <folding>
-            <element signature="e#2720#2721#0" expanded="true" />
-            <element signature="e#2757#2758#0" expanded="true" />
-            <element signature="e#3615#3616#0" expanded="true" />
-            <element signature="e#3669#3670#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2550">
+          <caret line="115" column="26" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="28" column="74" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+        <state relative-caret-position="511">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/AudioSelectAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/VideoSelectAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="103" column="30" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
+        <state relative-caret-position="128">
+          <caret line="68" column="66" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioSelectActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/utils/FileStorageUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
+        <state relative-caret-position="-7299">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/adapter/PhotoSelectAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="68" column="66" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
           <folding>
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2693#3674#0" expanded="true" />
+            <element signature="e#3673#3674#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/base/TBaseActivity.java">
+    <entry file="jar://F:/Sdk/platforms/android-28/android.jar!/android/provider/MediaStore.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3550">
-          <caret line="162" column="36" selection-start-line="162" selection-start-column="19" selection-end-line="162" selection-end-column="36" />
+        <state relative-caret-position="17">
+          <caret line="138" column="36" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/PhotoInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding>
-            <element signature="e#5821#5822#0" expanded="true" />
-            <element signature="e#5879#5880#0" expanded="true" />
-            <element signature="e#5982#5983#0" expanded="true" />
-            <element signature="e#6041#6042#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/TMediaPickerActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/BaseMediaInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        <state relative-caret-position="225">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Sdk/platforms/android-28/android.jar!/android/content/ContentResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/provider/ApplicationContextProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/provider/ContextManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1231#1232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/receiver/ScanSdReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/BaseMediaAlbumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/helpers/LoaderMediaType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaOperations.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1420">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state relative-caret-position="900">
+          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaInvocationHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaDataBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/PhotoCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="19" column="103" selection-start-line="19" selection-start-column="103" selection-end-line="19" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/MediaBaseCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://F:/Sdk/platforms/android-29/android.jar!/java/lang/Class.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../app/src/main/java/com/aeolou/android/tmediapicke/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/activities/TMediaPickerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" column="83" selection-start-line="36" selection-start-column="83" selection-end-line="36" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/manager/TMediaPickerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding>
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Sdk/platforms/android-29/android.jar!/android/content/Intent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8675">
-          <caret line="378" column="44" selection-start-line="378" selection-start-column="44" selection-end-line="378" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/manager/TMediaInvocationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aeolou/tmediapicker/1.0.2/4d84f7225cc816fd293ee68dce90f79bfe855842/tmediapicker-1.0.2-sources.jar!/com/aeolou/digital/media/android/tmediapicke/manager/TMediaPicker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/VideoCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoSelectActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2725">
-          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="26" />
-          <folding>
-            <element signature="e#2491#2492#0" expanded="true" />
-            <element signature="e#2522#2523#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="174" column="28" selection-start-line="174" selection-start-column="28" selection-end-line="174" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/AudioCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoSelectActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2425">
-          <caret line="125" column="25" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="25" />
+        <state relative-caret-position="375">
+          <caret line="205" column="96" selection-start-line="205" selection-start-column="96" selection-end-line="205" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/callbacks/MediaSelectResultCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/TMediaPickerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1202">
+          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding>
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#1985#1986#0" expanded="true" />
+            <element signature="e#3350#3361#0" expanded="true" />
+            <element signature="e#3573#3584#0" expanded="true" />
+            <element signature="e#3796#3807#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_audio_select.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/models/VideoAlbumInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        <state relative-caret-position="136">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_video_album.xml">
       <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-375" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/PhotoAlbumActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="123" selection-start-line="123" selection-end-line="124" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/TMediaPickerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="63" column="59" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/VideoAlbumActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoAlbumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+          <folding>
+            <element signature="e#1891#2098#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#3746#3947#0" expanded="true" />
+            <element signature="e#3946#3947#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/manager/MediaCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2100">
+          <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/BaseMediaLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="19" column="103" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioAlbumActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/activities/AudioSelectActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3375">
+          <caret line="167" column="27" selection-start-line="167" selection-end-line="168" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/helpers/TConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2450">
+          <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioAlbumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/AudioLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoAlbumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="33" selection-start-line="33" selection-end-line="36" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/PhotoLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-568">
+          <caret line="64" column="96" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aeolou/digital/media/android/tmediapicke/loader/VideoLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

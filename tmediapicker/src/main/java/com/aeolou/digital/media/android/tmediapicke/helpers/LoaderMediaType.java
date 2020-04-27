@@ -1,4 +1,4 @@
-package com.aeolou.digital.media.android.tmediapicke.loader;
+package com.aeolou.digital.media.android.tmediapicke.helpers;
 
 /**
  * Author: Aeolou

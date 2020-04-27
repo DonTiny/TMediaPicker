@@ -2,7 +2,6 @@ package com.aeolou.digital.media.android.tmediapicke.models;
 
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
  * Author: Aeolou
@@ -12,16 +11,16 @@ import android.os.Parcelable;
 public class VideoInfo extends BaseMediaInfo {
     private String artist;//作者
     private long duration;//媒体项目的持续时间
-    private String bucketDisplayName;//该媒体项目的主存储桶显示名称
-    private String bucketId;//该媒体项目的主要存储区ID
     private String bookMark;//视频项目中应恢复播放的位置
     private int height;//媒体项目的高度
     private int width;//媒体项目的宽度
+    private String miniThumbMagic;//在API级别29中已弃用。所有缩略图应通过来获取 MediaStore.Images.Thumbnails#getThumbnail，因为不再支持该值。
+    private String thumbnailsData;//缩略图
+    private String bucketDisplayName;//该媒体项目的主存储桶显示名称
+    private String bucketId;//该媒体项目的主要存储区ID
     private String description;//说明
-    private String miniThumbMagic;//该常数在API级别29中已弃用。所有缩略图应通过来获取 MediaStore.Images.Thumbnails#getThumbnail，因为不再支持该值。
 
     public VideoInfo() {
-        super();
     }
 
     public String getArtist() {
@@ -40,30 +39,6 @@ public class VideoInfo extends BaseMediaInfo {
         this.duration = duration;
     }
 
-    public String getBucketDisplayName() {
-        return bucketDisplayName;
-    }
-
-    public void setBucketDisplayName(String bucketDisplayName) {
-        this.bucketDisplayName = bucketDisplayName;
-    }
-
-    public String getBucketId() {
-        return bucketId;
-    }
-
-    public void setBucketId(String bucketId) {
-        this.bucketId = bucketId;
-    }
-
-    public String getBookMark() {
-        return bookMark;
-    }
-
-    public void setBookMark(String bookMark) {
-        this.bookMark = bookMark;
-    }
-
     public int getHeight() {
         return height;
     }
@@ -80,14 +55,6 @@ public class VideoInfo extends BaseMediaInfo {
         this.width = width;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getMiniThumbMagic() {
         return miniThumbMagic;
     }
@@ -96,11 +63,52 @@ public class VideoInfo extends BaseMediaInfo {
         this.miniThumbMagic = miniThumbMagic;
     }
 
+    public String getThumbnailsData() {
+        return thumbnailsData;
+    }
+
+    public void setThumbnailsData(String thumbnailsData) {
+        this.thumbnailsData = thumbnailsData;
+    }
+
+    public String getBucketDisplayName() {
+        return bucketDisplayName;
+    }
+
+    public void setBucketDisplayName(String bucketDisplayName) {
+        this.bucketDisplayName = bucketDisplayName;
+    }
+
+    public String getBucketId() {
+        return bucketId;
+    }
+
+    public void setBucketId(String bucketId) {
+        this.bucketId = bucketId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getBookMark() {
+        return bookMark;
+    }
+
+    public void setBookMark(String bookMark) {
+        this.bookMark = bookMark;
+    }
+
+
     public static Creator<VideoInfo> getCREATOR() {
         return CREATOR;
     }
 
-    public static final Parcelable.Creator<VideoInfo> CREATOR = new Parcelable.Creator<VideoInfo>() {
+    public static final Creator<VideoInfo> CREATOR = new Creator<VideoInfo>() {
         public VideoInfo createFromParcel(Parcel in) {
             return new VideoInfo(in);
         }
@@ -116,13 +124,14 @@ public class VideoInfo extends BaseMediaInfo {
         // 子类实现的写操作
         out.writeString(artist);
         out.writeLong(duration);
-        out.writeString(bucketDisplayName);
-        out.writeString(bucketId);
         out.writeString(bookMark);
         out.writeInt(height);
         out.writeInt(width);
+        out.writeString(bucketDisplayName);
+        out.writeString(bucketId);
         out.writeString(miniThumbMagic);
         out.writeString(description);
+        out.writeString(thumbnailsData);
     }
 
     protected VideoInfo(Parcel in) {
@@ -131,12 +140,13 @@ public class VideoInfo extends BaseMediaInfo {
         // 子类实现的读取操作
         artist = in.readString();
         duration = in.readLong();
-        bucketDisplayName = in.readString();
-        bucketId = in.readString();
         bookMark = in.readString();
         height = in.readInt();
         width = in.readInt();
+        bucketDisplayName = in.readString();
+        bucketId = in.readString();
         miniThumbMagic = in.readString();
         description = in.readString();
+        thumbnailsData = in.readString();
     }
 }

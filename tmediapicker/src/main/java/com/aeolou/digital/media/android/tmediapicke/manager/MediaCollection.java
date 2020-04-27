@@ -14,11 +14,13 @@ import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
 import com.aeolou.digital.media.android.tmediapicke.loader.AudioAlbumLoader;
 import com.aeolou.digital.media.android.tmediapicke.loader.AudioLoader;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.loader.PhotoAlbumLoader;
 import com.aeolou.digital.media.android.tmediapicke.loader.PhotoLoader;
 import com.aeolou.digital.media.android.tmediapicke.loader.VideoAlbumLoader;
 import com.aeolou.digital.media.android.tmediapicke.loader.VideoLoader;
+import com.aeolou.digital.media.android.tmediapicke.provider.ContextManager;
 import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.lang.ref.WeakReference;
@@ -30,36 +32,39 @@ import java.util.concurrent.Executors;
  * Date:2019/12/23 0003
  * Email:tg0804013x@gmail.com
  */
-public class MediaCollection implements MediaOperations {
-    private WeakReference<Context> mContext;
+public class MediaCollection implements MediaOperations, ContextManager.OnScanSDListener {
+    private Context mContext;
     private PhotoCallbacks photoCallbacks;
     private VideoCallbacks videoCallbacks;
     private AudioCallbacks audioCallbacks;
     private LoaderMediaType loaderMediaType;
+    private LoaderStorageType loaderStorageType;
     private ContentObserver observer;
     private ExecutorService executorService;
     private Handler handler;
 
-    public MediaCollection(WeakReference<Context> context, LoaderMediaType loaderMediaType) {
+    public MediaCollection(Context context, LoaderMediaType loaderMediaType, LoaderStorageType loaderStorageType) {
+        LogUtils.i("创建加载");
         this.mContext = context;
         this.loaderMediaType = loaderMediaType;
-        executorService = Executors.newFixedThreadPool(6);
-        handler = new Handler(mContext.get().getMainLooper());
+        this.loaderStorageType = loaderStorageType;
+        executorService = Executors.newFixedThreadPool(10);
+        handler = new Handler(mContext.getMainLooper());
         observer = getMediaContentObserver();
         switch (loaderMediaType) {
             case VIDEO:
             case VIDEO_ALBUM:
-                mContext.get().getContentResolver().registerContentObserver(TConstants.VIDEO_URI, false, observer);
+                mContext.getContentResolver().registerContentObserver(TConstants.VIDEO_URI, false, observer);
                 break;
             case AUDIO:
             case AUDIO_ALBUM:
-                mContext.get().getContentResolver().registerContentObserver(TConstants.AUDIO_URI, false, observer);
+                mContext.getContentResolver().registerContentObserver(TConstants.AUDIO_URI, false, observer);
                 break;
             default:
-                mContext.get().getContentResolver().registerContentObserver(TConstants.PHOTO_URI, false, observer);
+                mContext.getContentResolver().registerContentObserver(TConstants.PHOTO_URI, false, observer);
                 break;
         }
-
+        ContextManager.get().addOnScanSDListenerList(this);
     }
 
 
@@ -71,6 +76,8 @@ public class MediaCollection implements MediaOperations {
     @Override
     public void load(@NonNull LoaderMediaType loaderMediaType) {
         this.loaderMediaType = loaderMediaType;
+        LogUtils.i("加载类型" + loaderMediaType + "的数据");
+        if (mContext == null || executorService == null) return;
         switch (loaderMediaType) {
             case PHOTO:
                 loadPhoto(null);
@@ -122,11 +129,11 @@ public class MediaCollection implements MediaOperations {
 
 
     /**
-     * 加载所有照片
+     * 加载照片
      */
     private void loadPhoto(String bucketName) {
         if (photoCallbacks != null) photoCallbacks.onStarted();
-        executorService.execute(new PhotoLoader(mContext.get().getApplicationContext().getContentResolver(), bucketName, photoCallbacks, handler));
+        executorService.execute(new PhotoLoader(mContext.getApplicationContext(), loaderStorageType, bucketName, photoCallbacks, handler));
     }
 
     /**
@@ -134,15 +141,15 @@ public class MediaCollection implements MediaOperations {
      */
     private void loadPhotoAlbum() {
         if (photoCallbacks != null) photoCallbacks.onStarted();
-        executorService.execute(new PhotoAlbumLoader(mContext.get().getApplicationContext().getContentResolver(), photoCallbacks, handler));
+        executorService.execute(new PhotoAlbumLoader(mContext.getApplicationContext(), loaderStorageType, photoCallbacks, handler));
     }
 
     /**
-     * 加载所有视频
+     * 加载视频
      */
     private void loadVideo(String bucketName) {
         if (videoCallbacks != null) videoCallbacks.onStarted();
-        executorService.execute(new VideoLoader(mContext.get().getApplicationContext().getContentResolver(), bucketName, videoCallbacks, handler));
+        executorService.execute(new VideoLoader(mContext.getApplicationContext(), loaderStorageType, bucketName, videoCallbacks, handler));
 
     }
 
@@ -151,15 +158,15 @@ public class MediaCollection implements MediaOperations {
      */
     private void loadVideoAlbum() {
         if (videoCallbacks != null) videoCallbacks.onStarted();
-        executorService.execute(new VideoAlbumLoader(mContext.get().getApplicationContext().getContentResolver(), videoCallbacks, handler));
+        executorService.execute(new VideoAlbumLoader(mContext, loaderStorageType, videoCallbacks, handler));
     }
 
     /**
-     * 加载所有音频
+     * 加载音频
      */
     private void loadAudio(String bucketName) {
         if (audioCallbacks != null) audioCallbacks.onStarted();
-        executorService.execute(new AudioLoader(mContext.get().getApplicationContext().getContentResolver(), bucketName, audioCallbacks, handler));
+        executorService.execute(new AudioLoader(mContext.getApplicationContext(), loaderStorageType, bucketName, audioCallbacks, handler));
     }
 
     /**
@@ -167,7 +174,7 @@ public class MediaCollection implements MediaOperations {
      */
     private void loadAudioAlbum() {
         if (audioCallbacks != null) audioCallbacks.onStarted();
-        executorService.execute(new AudioAlbumLoader(mContext.get().getApplicationContext().getContentResolver(), audioCallbacks, handler));
+        executorService.execute(new AudioAlbumLoader(mContext, loaderStorageType, audioCallbacks, handler));
     }
 
 
@@ -187,20 +194,34 @@ public class MediaCollection implements MediaOperations {
     }
 
     public void clear() {
-        mContext.get().getContentResolver().unregisterContentObserver(observer);
+        LogUtils.i("清楚加载");
+        mContext.getContentResolver().unregisterContentObserver(observer);
         executorService.shutdown();
+        executorService = null;
         observer = null;
     }
 
+    public void setLoaderStorageType(LoaderStorageType loaderStorageType) {
+        this.loaderStorageType = loaderStorageType;
+    }
 
     private ContentObserver getMediaContentObserver() {
         return new ContentObserver(new Handler(Looper.getMainLooper())) {
             @Override
             public void onChange(boolean selfChange, Uri uri) {
-                LogUtils.i("有数据变化");
-                load();
+                LogUtils.i(uri + "有数据" + selfChange + "变化" + uri.getPath());
+
             }
         };
     }
 
+    @Override
+    public void onScanStarted() {
+
+    }
+
+    @Override
+    public void onScanFinished() {
+        load();
+    }
 }

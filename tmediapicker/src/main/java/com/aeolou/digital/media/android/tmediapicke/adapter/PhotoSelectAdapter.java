@@ -66,7 +66,7 @@ public class PhotoSelectAdapter extends SimpleRecycleViewAdapter<PhotoInfo, Phot
                 mTv_select.setVisibility(View.INVISIBLE);
             }
 
-            Glide.with(context).load(photoInfo.getData())
+            Glide.with(context).load(photoInfo.getThumbnailsData())
                     .placeholder(R.drawable.image_placeholder)
                     .into(mIv_image);
 

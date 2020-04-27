@@ -66,7 +66,7 @@ public class VideoSelectAdapter extends SimpleRecycleViewAdapter<VideoInfo, Vide
                 mTv_select.setVisibility(View.INVISIBLE);
             }
             mTv_time.setText(getGapTime(videoInfo.getDuration()));
-            Glide.with(context).load(videoInfo.getData())
+            Glide.with(context).load(videoInfo.getThumbnailsData())
                     .placeholder(R.drawable.image_placeholder)
                     .into(mIv_video);
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.aeolou.digital.media.android.tmediapicke.callbacks.MediaSelectResultCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaInvocationHandler;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaPicker;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaPickerImpl;

@@ -15,8 +15,9 @@ import com.aeolou.digital.media.android.tmediapicke.adapter.AudioAlbumSelectAdap
 import com.aeolou.digital.media.android.tmediapicke.adapter.RecycleViewDivider;
 import com.aeolou.digital.media.android.tmediapicke.base.TBaseActivity;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.AudioCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioAlbumInfo;
@@ -66,7 +67,7 @@ public class AudioAlbumActivity extends TBaseActivity implements View.OnClickLis
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.AUDIO_ALBUM).build();
+        tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.AUDIO_ALBUM).build();
         audioAlbumInfoList = new ArrayList<>();
     }
 
@@ -101,7 +102,7 @@ public class AudioAlbumActivity extends TBaseActivity implements View.OnClickLis
                 Intent intent = new Intent(AudioAlbumActivity.this, AudioSelectActivity.class);
                 intent.putExtra(TConstants.INTENT_EXTRA_AUDIO_AlBUM, audioAlbumInfo);
                 if (getIntent().getExtras() != null) {
-                    intent.putExtra(TConstants.INTENT_EXTRA_LIMIT, getIntent().getExtras().getInt(TConstants.INTENT_EXTRA_LIMIT,TConstants.DEFAULT_LIMIT));
+                    intent.putExtra(TConstants.INTENT_EXTRA_LIMIT, getIntent().getExtras().getInt(TConstants.INTENT_EXTRA_LIMIT, TConstants.DEFAULT_LIMIT));
                 }
                 startActivityForResult(intent, TConstants.REQUEST_AUDIO_CODE);
             }
@@ -144,12 +145,12 @@ public class AudioAlbumActivity extends TBaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onAudioResult(List<AudioInfo> audioInfoList) {
+    public void onAudioResult(List<AudioInfo> audioInfoList, LoaderStorageType loaderStorageType) {
 
     }
 
     @Override
-    public void onAudioAlbumResult(List<AudioAlbumInfo> audioAlbumInfoList) {
+    public void onAudioAlbumResult(List<AudioAlbumInfo> audioAlbumInfoList, LoaderStorageType loaderStorageType) {
         this.audioAlbumInfoList = audioAlbumInfoList;
         mPb_progress.setVisibility(View.INVISIBLE);
         mRecycle_album_select.setVisibility(View.VISIBLE);

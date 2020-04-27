@@ -18,13 +18,14 @@ import com.aeolou.digital.media.android.tmediapicke.R;
 import com.aeolou.digital.media.android.tmediapicke.adapter.PhotoSelectAdapter;
 import com.aeolou.digital.media.android.tmediapicke.base.TBaseActivity;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.PhotoCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
+import com.aeolou.digital.media.android.tmediapicke.utils.CollectionUtils;
 import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
@@ -36,11 +37,6 @@ import java.util.List;
  * Email:tg0804013x@gmail.com
  */
 public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks, View.OnClickListener {
-    private static final String SAVE_SELECTED_PHOTO = "saveSelectedPhoto";
-    private static final String SAVE_SELECTED_PHOTO_NUMBER = "saveSelectedPhotoNumber";
-
-    //    private static final String SAVE_SELECTED_NUMBER = "saveSelectedNumber";
-//    private static final String SAVE_SELECTED_LIMIT = "saveSelectedLimit";
     private List<PhotoInfo> photoInfoList;
     private TextView mTv_error;
     private ProgressBar mPb_progress;
@@ -113,7 +109,7 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         updateUi();
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.PHOTO).build();
+        tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.PHOTO).build();
 
     }
 
@@ -159,12 +155,14 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
 
     @Override
     public void onStarted() {
-        mPb_progress.setVisibility(View.VISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE);
+        if (!isFinishing() && CollectionUtils.isEmpty(photoInfoList)) {
+            mPb_progress.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
-    public void onPhotoResult(List<PhotoInfo> photoInfoList) {
+    public void onPhotoResult(List<PhotoInfo> photoInfoList, LoaderStorageType loaderStorageType) {
         this.photoInfoList = photoInfoList;
         mPb_progress.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
@@ -174,14 +172,16 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
 
 
     @Override
-    public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList) {
+    public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList, LoaderStorageType loaderStorageType) {
     }
 
 
     @Override
     public void onError(Throwable throwable) {
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mTv_error.setVisibility(View.VISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mTv_error.setVisibility(View.VISIBLE);
+        }
     }
 
 

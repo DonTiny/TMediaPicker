@@ -3,6 +3,8 @@ package com.aeolou.digital.media.android.tmediapicke.helpers;
 import android.net.Uri;
 import android.provider.MediaStore;
 
+import java.io.File;
+
 /**
  * Author: Aeolou
  * Date:2019/12/23 0003
@@ -14,6 +16,8 @@ public interface TConstants {
     int REQUEST_PHOTO_CODE = 2000;
     int REQUEST_VIDEO_CODE = 2001;
     int REQUEST_AUDIO_CODE = 2002;
+
+    String MNT_PATH = File.separator + "mnt";
 
     String INTENT_EXTRA_PHOTO = "photo";
     String INTENT_EXTRA_VIDEO = "video";
@@ -68,6 +72,8 @@ public interface TConstants {
             MediaStore.Images.Media.MIME_TYPE,//媒体项目的MIME类型
             MediaStore.Images.Media.DESCRIPTION,//图片说明
             MediaStore.Images.Media.MINI_THUMB_MAGIC,//该常数在API级别29中已弃用。所有缩略图应通过来获取 MediaStore.Images.Thumbnails#getThumbnail，因为不再支持该值。
+            MediaStore.Images.Thumbnails.DATA,//缩略图
+
     };
 
     String[] VIDEO_PROJECTION = new String[]{
@@ -89,6 +95,8 @@ public interface TConstants {
             MediaStore.Video.Media.MIME_TYPE,//媒体项目的MIME类型
             MediaStore.Video.Media.DESCRIPTION,//录像说明
             MediaStore.Video.Media.MINI_THUMB_MAGIC,//该常数在API级别29中已弃用。所有缩略图应通过来获取 MediaStore.Images.Thumbnails#getThumbnail，因为不再支持该值。
+            MediaStore.Video.Thumbnails.DATA,//缩略图
+
     };
 
     String[] AUDIO_PROJECTION = new String[]{

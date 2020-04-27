@@ -1,10 +1,8 @@
 package com.aeolou.digital.media.android.tmediapicke.manager;
 
-import android.content.Context;
-
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
-
-import java.lang.ref.WeakReference;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
+import com.aeolou.digital.media.android.tmediapicke.provider.ContextManager;
 
 /**
  * Author: Aeolou
@@ -13,20 +11,26 @@ import java.lang.ref.WeakReference;
  */
 public class TMediaDataBuilder {
     private LoaderMediaType loaderMediaType;
-    private Context mContext;
+    private LoaderStorageType loaderStorageType;
 
-    public TMediaDataBuilder(Context mContext) {
-        this.mContext = mContext;
+    public TMediaDataBuilder() {
     }
 
-    public TMediaDataBuilder setDefLoaderMediaType(LoaderMediaType loaderMediaType) {
+    public TMediaDataBuilder setLoaderMediaType(LoaderMediaType loaderMediaType) {
         this.loaderMediaType = loaderMediaType;
         return this;
     }
 
+    public TMediaDataBuilder setLoaderStorageType(LoaderStorageType loaderStorageType) {
+        this.loaderStorageType = loaderStorageType;
+        return this;
+    }
+
+
     public TMediaData build() {
         if (loaderMediaType == null) loaderMediaType = LoaderMediaType.PHOTO;//默认加载模式为所有照片片
-        MediaCollection mediaCollection = new MediaCollection(new WeakReference<Context>(mContext), loaderMediaType);
+        if (loaderStorageType == null) loaderStorageType = LoaderStorageType.ALL;//默认加载模式为所有照片片
+        MediaCollection mediaCollection = new MediaCollection(ContextManager.get().getContext(), loaderMediaType, loaderStorageType);
         TMediaData tMediaData = new TMediaData(mediaCollection);
         return tMediaData;
     }

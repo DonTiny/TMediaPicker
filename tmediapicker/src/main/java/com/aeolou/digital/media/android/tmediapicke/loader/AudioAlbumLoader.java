@@ -3,12 +3,13 @@ package com.aeolou.digital.media.android.tmediapicke.loader;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Handler;
 
 import com.aeolou.digital.media.android.tmediapicke.callbacks.AudioCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioAlbumInfo;
+import com.aeolou.digital.media.android.tmediapicke.models.BaseAlbumInfo;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,14 +20,18 @@ import java.util.List;
  * Date:2019/12/23 0003
  * Email:tg0804013x@gmail.com
  */
-public class AudioAlbumLoader implements Runnable {
+public class AudioAlbumLoader extends BaseMediaAlbumLoader implements Runnable {
     private ContentResolver contentResolver;
     private List<AudioAlbumInfo> audioAlbumInfoList;
     private AudioCallbacks callbacks;
     private Handler handler;
+    private LoaderStorageType loaderStorageType;
+    private Context context;
 
-    public AudioAlbumLoader(ContentResolver contentResolver, AudioCallbacks callbacks, Handler handler) {
-        this.contentResolver = contentResolver;
+    public AudioAlbumLoader(Context context, LoaderStorageType loaderStorageType, AudioCallbacks callbacks, Handler handler) {
+        this.context = context;
+        this.contentResolver = context.getContentResolver();
+        this.loaderStorageType = loaderStorageType;
         this.callbacks = callbacks;
         this.handler = handler;
         audioAlbumInfoList = new ArrayList<>();
@@ -43,8 +48,9 @@ public class AudioAlbumLoader implements Runnable {
 
     @Override
     public void run() {
+        String selection = getSelectionType(context, loaderStorageType);
         Cursor cursor = contentResolver.query(TConstants.AUDIO_URI, TConstants.AUDIO_ALBUM_PROJECTION,
-                null, null, TConstants.AUDIO_SORT_ORDER);
+                selection, null, TConstants.AUDIO_SORT_ORDER);
         if (cursor == null) {
             handler.post(new Runnable() {
                 @Override
@@ -68,7 +74,8 @@ public class AudioAlbumLoader implements Runnable {
                 displayDame = cursor.getString(cursor.getColumnIndex(TConstants.AUDIO_ALBUM_PROJECTION[1]));
                 bucketName = getBucketName(data, displayDame);
                 file = new File(data);
-                if (!albumSet.contains(bucketName) && file.exists()) {
+                if (!file.exists()) continue;
+                if (!albumSet.contains(bucketName)) {
                     audioAlbumInfo = new AudioAlbumInfo();
                     audioAlbumInfo.setBucketName(bucketName);
                     temp.add(audioAlbumInfo);
@@ -77,6 +84,7 @@ public class AudioAlbumLoader implements Runnable {
                     audioAlbumInfo = temp.get(albumSet.indexOf(bucketName));
                     audioAlbumInfo.setCount(audioAlbumInfo.getCount() + 1);
                 }
+                audioAlbumInfo.setType(BaseAlbumInfo.AUDIO);
 
             } while (cursor.moveToPrevious());
         }
@@ -86,7 +94,7 @@ public class AudioAlbumLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                if (callbacks!=null) callbacks.onAudioAlbumResult(audioAlbumInfoList);
+                if (callbacks != null) callbacks.onAudioAlbumResult(audioAlbumInfoList,loaderStorageType);
             }
         });
     }

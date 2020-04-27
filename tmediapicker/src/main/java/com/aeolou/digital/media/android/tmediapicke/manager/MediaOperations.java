@@ -5,7 +5,8 @@ import androidx.annotation.NonNull;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.AudioCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.PhotoCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 
 /**
  * Author: Aeolou
@@ -28,5 +29,6 @@ public interface MediaOperations {
 
     void setAudioCallbacks(AudioCallbacks audioCallbacks);
 
+    void setLoaderStorageType(LoaderStorageType loaderStorageType);
     void clear();
 }

@@ -14,8 +14,9 @@ import com.aeolou.digital.media.android.tmediapicke.R;
 import com.aeolou.digital.media.android.tmediapicke.adapter.PhotoAlbumSelectAdapter;
 import com.aeolou.digital.media.android.tmediapicke.base.TBaseActivity;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.PhotoCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.loader.LoaderMediaType;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoAlbumInfo;
@@ -65,7 +66,7 @@ public class PhotoAlbumActivity extends TBaseActivity implements PhotoCallbacks,
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        tMediaData = new TMediaDataBuilder(this).setDefLoaderMediaType(LoaderMediaType.PHOTO_ALBUM).build();
+        tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.PHOTO_ALBUM).build();
         photoAlbumInfoList = new ArrayList<>();
     }
 
@@ -99,7 +100,7 @@ public class PhotoAlbumActivity extends TBaseActivity implements PhotoCallbacks,
                 Intent intent = new Intent(PhotoAlbumActivity.this, PhotoSelectActivity.class);
                 intent.putExtra(TConstants.INTENT_EXTRA_PHOTO_AlBUM, photoAlbumInfo);
                 if (getIntent().getExtras() != null) {
-                    intent.putExtra(TConstants.INTENT_EXTRA_LIMIT, getIntent().getExtras().getInt(TConstants.INTENT_EXTRA_LIMIT,TConstants.DEFAULT_LIMIT));
+                    intent.putExtra(TConstants.INTENT_EXTRA_LIMIT, getIntent().getExtras().getInt(TConstants.INTENT_EXTRA_LIMIT, TConstants.DEFAULT_LIMIT));
                 }
                 startActivityForResult(intent, TConstants.REQUEST_PHOTO_CODE);
             }
@@ -113,12 +114,12 @@ public class PhotoAlbumActivity extends TBaseActivity implements PhotoCallbacks,
     }
 
     @Override
-    public void onPhotoResult(List<PhotoInfo> photoInfoList) {
+    public void onPhotoResult(List<PhotoInfo> photoInfoList, LoaderStorageType loaderStorageType) {
 
     }
 
     @Override
-    public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList) {
+    public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList, LoaderStorageType loaderStorageType) {
         this.photoAlbumInfoList = photoAlbumInfoList;
         mPb_progress.setVisibility(View.INVISIBLE);
         mRecycle_album_select.setVisibility(View.VISIBLE);

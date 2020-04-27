@@ -4,12 +4,15 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Handler;
 
 import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
+import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
+import com.aeolou.digital.media.android.tmediapicke.models.BaseAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoAlbumInfo;
+import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
+import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,14 +23,18 @@ import java.util.List;
  * Date:2019/12/23 0003
  * Email:tg0804013x@gmail.com
  */
-public class VideoAlbumLoader implements Runnable {
+public class VideoAlbumLoader extends BaseMediaAlbumLoader implements Runnable {
     private ContentResolver contentResolver;
     private List<VideoAlbumInfo> videoAlbumInfoList;
     private VideoCallbacks callbacks;
     private Handler handler;
+    private LoaderStorageType loaderStorageType;
+    private Context context;
 
-    public VideoAlbumLoader(ContentResolver contentResolver, VideoCallbacks callbacks, Handler handler) {
-        this.contentResolver = contentResolver;
+    public VideoAlbumLoader(Context context, LoaderStorageType loaderStorageType, VideoCallbacks callbacks, Handler handler) {
+        this.context = context;
+        this.contentResolver = context.getContentResolver();
+        this.loaderStorageType = loaderStorageType;
         this.callbacks = callbacks;
         this.handler = handler;
         videoAlbumInfoList = new ArrayList<>();
@@ -41,8 +48,9 @@ public class VideoAlbumLoader implements Runnable {
 
     @Override
     public void run() {
+        String selection = getSelectionType(context, loaderStorageType);
         Cursor cursor = contentResolver.query(TConstants.VIDEO_URI, TConstants.VIDEO_ALBUM_PROJECTION,
-                null, null, TConstants.VIDEO_SORT_ORDER);
+                selection, null, TConstants.VIDEO_SORT_ORDER);
         if (cursor == null) {
             handler.post(new Runnable() {
                 @Override
@@ -64,7 +72,8 @@ public class VideoAlbumLoader implements Runnable {
                 bucketName = cursor.getString(cursor.getColumnIndex(TConstants.VIDEO_ALBUM_PROJECTION[2]));
                 id = cursor.getString(cursor.getColumnIndex(TConstants.VIDEO_ALBUM_PROJECTION[0]));
                 file = new File(cursor.getString(cursor.getColumnIndex(TConstants.VIDEO_ALBUM_PROJECTION[3])));
-                if (!albumSet.contains(bucketName) && file.exists()) {
+                if (!file.exists()) continue;
+                if (!albumSet.contains(bucketName)) {
                     videoAlbumInfo = new VideoAlbumInfo();
                     videoAlbumInfo.setBucketId(cursor.getString(cursor.getColumnIndex(TConstants.VIDEO_ALBUM_PROJECTION[1])));
                     videoAlbumInfo.setBucketName(bucketName);
@@ -75,7 +84,7 @@ public class VideoAlbumLoader implements Runnable {
                     videoAlbumInfo = temp.get(albumSet.indexOf(bucketName));
                     videoAlbumInfo.setCount(videoAlbumInfo.getCount() + 1);
                 }
-
+                videoAlbumInfo.setType(BaseAlbumInfo.AUDIO);
             } while (cursor.moveToPrevious());
         }
         cursor.close();
@@ -84,7 +93,8 @@ public class VideoAlbumLoader implements Runnable {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                if (callbacks!=null)  callbacks.onVideoAlbumResult(videoAlbumInfoList);
+                if (callbacks != null)
+                callbacks.onVideoAlbumResult(videoAlbumInfoList, loaderStorageType);
             }
         });
     }
