@@ -1,9 +1,8 @@
-package com.aeolou.digital.media.android.tmediapicke.utils;
+package com.aeolou.android.tmediapicke;
 
 import android.util.Log;
 
-public class
-LogUtils {
+public class LogUtils {
 
     public static boolean isDebug = true;
 
@@ -64,16 +63,15 @@ LogUtils {
 
     public static void i(String msg) {
         if (isDebug) {
-            Log.i(APP_TAG, getMsgFormat("kankan"+msg));
+            Log.i(APP_TAG, getMsgFormat("kankan" + msg));
         }
     }
 
     public static void i(String tag, String msg) {
         if (isDebug) {
-            Log.i(tag, getMsgFormat("kankan"+msg));
+            Log.i(tag, getMsgFormat("kankan" + msg));
         }
     }
-
 
 
     public static void w(String msg) {

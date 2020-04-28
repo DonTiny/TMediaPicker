@@ -7,15 +7,12 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.aeolou.digital.media.android.tmediapicke.callbacks.MediaSelectResultCallbacks;
-import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaInvocationHandler;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaPicker;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaPickerImpl;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.List;
 
@@ -50,19 +47,17 @@ public class TMediaPickerActivity extends AppCompatActivity implements MediaSele
 
     @Override
     public void onPhotoResult(List<PhotoInfo> photoInfoList) {
-        LogUtils.i("Return photo data" + GsonUtil.gsonString(photoInfoList));
 
     }
 
     @Override
     public void onVideoResult(List<VideoInfo> videoInfoList) {
-        LogUtils.i("Return video data" + GsonUtil.gsonString(videoInfoList));
 
     }
 
     @Override
     public void onAudioResult(List<AudioInfo> audioInfoList) {
-        LogUtils.i("Return audio data" + GsonUtil.gsonString(audioInfoList));
+
 
     }
 }

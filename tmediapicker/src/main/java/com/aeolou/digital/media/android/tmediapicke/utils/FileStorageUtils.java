@@ -113,8 +113,6 @@ public class FileStorageUtils {
                 Object volumeInfo = result.get(i);
                 if ((int) getType.invoke(volumeInfo) == 0) {
                     Object disk = getDisk.invoke(volumeInfo);
-                    //LogUtils.i("存储器" + (String) path.get(volumeInfo));
-
                     if (disk != null) {
                         if ((boolean) isSd.invoke(disk)) {
                             sdcardDir = (String) path.get(volumeInfo);

@@ -25,7 +25,6 @@ import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +80,7 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
     protected void init(Bundle savedInstanceState) {
         tMediaData = new TMediaDataBuilder().setLoaderMediaType(LoaderMediaType.AUDIO).build();
         audioInfoList = new ArrayList<>();
-        adapter = new AudioSelectAdapter(this, audioInfoList,selectLimit);
+        adapter = new AudioSelectAdapter(this, audioInfoList, selectLimit);
         isShowSelected = getResources().getBoolean(R.bool.tMediaPickerIsShowSelected);
     }
 
@@ -148,15 +147,19 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
 
     @Override
     public void onStarted() {
-        mPb_progress.setVisibility(View.VISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        }
     }
 
 
     @Override
     public void onError(Throwable throwable) {
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mTv_error.setVisibility(View.VISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mTv_error.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -165,15 +168,16 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
         if (audioAlbumInfo == null) {
             tMediaData.load();
         } else {
-            LogUtils.i("要加载的同名"+audioAlbumInfo.getBucketName());
             tMediaData.loadAlbum(audioAlbumInfo.getBucketName());
         }
     }
 
     @Override
     protected void hideViews() {
-        mPb_progress.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void updateUi() {
@@ -211,9 +215,11 @@ public class AudioSelectActivity extends TBaseActivity implements View.OnClickLi
     @Override
     public void onAudioResult(List<AudioInfo> audioInfoList, LoaderStorageType loaderStorageType) {
         this.audioInfoList = audioInfoList;
-        mPb_progress.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.VISIBLE);
-        adapter.setListData(this.audioInfoList);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            adapter.setListData(this.audioInfoList);
+        }
     }
 
     @Override

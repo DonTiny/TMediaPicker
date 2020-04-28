@@ -7,6 +7,7 @@ import com.aeolou.digital.media.android.tmediapicke.callbacks.PhotoCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
+import com.aeolou.digital.media.android.tmediapicke.listener.OnMediaContentChangeListener;
 
 /**
  * Author: Aeolou
@@ -75,10 +76,26 @@ public class TMediaData implements MediaOperations {
 
     }
 
+    /**
+     * 设置加载文件存储类型
+     *
+     * @param loaderStorageType
+     */
     @Override
     public void setLoaderStorageType(LoaderStorageType loaderStorageType) {
         mediaCollection.setLoaderStorageType(loaderStorageType);
     }
+
+    /**
+     * 设置媒体文件数据库内容变化监听
+     *
+     * @param listener
+     */
+    @Override
+    public void setOnMediaContentChangeListener(OnMediaContentChangeListener listener) {
+        mediaCollection.setOnMediaContentChangeListener(listener);
+    }
+
 
     @Override
     public void clear() {

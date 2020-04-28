@@ -11,12 +11,9 @@ import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
 import com.aeolou.digital.media.android.tmediapicke.models.BaseMediaInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.FileStorageUtils;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,7 +49,6 @@ public class PhotoLoader extends BaseMediaLoader implements Runnable {
             selection = getSelectionType(context, loaderStorageType);
             selectionArgs = null;
         } else {
-            LogUtils.i("当前类型" + loaderStorageType.toString());
             selection = TConstants.PHOTO_PROJECTION[5] + " LIKE ? AND " + getSelectionType(context, loaderStorageType);
             selectionArgs = new String[]{bucketName};
 
@@ -71,10 +67,6 @@ public class PhotoLoader extends BaseMediaLoader implements Runnable {
         if (cursor.moveToLast()) {
             File file;
             PhotoInfo photoInfo;
-            long startTime = new Date().getTime();
-            LogUtils.i("开始遍历数据" + startTime);
-            LogUtils.i("遍历数据项" + cursor.getCount());
-            LogUtils.i("遍首项项" + cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[3])));
             do {
                 file = new File(cursor.getString(cursor.getColumnIndex(TConstants.PHOTO_PROJECTION[3])));
                 if (file.exists()) {

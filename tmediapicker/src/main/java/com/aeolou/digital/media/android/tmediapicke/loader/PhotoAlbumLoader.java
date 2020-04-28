@@ -11,7 +11,6 @@ import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
 import com.aeolou.digital.media.android.tmediapicke.models.BaseAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoAlbumInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;

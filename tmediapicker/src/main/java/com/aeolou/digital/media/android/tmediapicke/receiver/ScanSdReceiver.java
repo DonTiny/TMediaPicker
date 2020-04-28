@@ -7,7 +7,6 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 
 import com.aeolou.digital.media.android.tmediapicke.provider.ContextManager;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.List;
 
@@ -27,13 +26,11 @@ public class ScanSdReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (Intent.ACTION_MEDIA_SCANNER_STARTED.equals(action)) {
-            LogUtils.i("正在扫描");
             for (ContextManager.OnScanSDListener listener : onScanSDListenerList) {
                 listener.onScanStarted();
             }
 
         } else if (Intent.ACTION_MEDIA_SCANNER_FINISHED.equals(action)) {
-            LogUtils.i("结束扫描");
             for (ContextManager.OnScanSDListener listener : onScanSDListenerList) {
                 listener.onScanFinished();
             }

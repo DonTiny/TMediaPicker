@@ -14,8 +14,8 @@
     <string name="text_confirm">确定</string>
     <string name="permission_ok">OK</string>
     <string name="permission_settings">设置</string>
-    <string name="permission_info">需要存储权限才能查看图像</string>
-    <string name="permission_force">需要存储权限才能查看图像，点击设置以授予权限</string>
+    <string name="permission_info">存储权限才能查看</string>
+    <string name="permission_force">需要存储权限，点击设置以授予权限</string>
 
     <string name="permission_package">package</string>
     <string name="text_selected">(%s)</string>

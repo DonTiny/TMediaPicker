@@ -121,21 +121,27 @@ public class PhotoAlbumActivity extends TBaseActivity implements PhotoCallbacks,
     @Override
     public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList, LoaderStorageType loaderStorageType) {
         this.photoAlbumInfoList = photoAlbumInfoList;
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mRecycle_album_select.setVisibility(View.VISIBLE);
-        adapter.setListData(this.photoAlbumInfoList);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mRecycle_album_select.setVisibility(View.VISIBLE);
+            adapter.setListData(this.photoAlbumInfoList);
+        }
     }
 
     @Override
     public void onStarted() {
-        mPb_progress.setVisibility(View.VISIBLE);
-        mRecycle_album_select.setVisibility(View.INVISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.VISIBLE);
+            mRecycle_album_select.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     public void onError(Throwable throwable) {
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mTv_error.setVisibility(View.VISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mTv_error.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

@@ -11,7 +11,6 @@ import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.BaseMediaInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -70,8 +69,6 @@ public class AudioLoader extends BaseMediaLoader implements Runnable {
             });
             return;
         }
-        LogUtils.i("要加载的同名" + bucketName + cursor.getCount());
-
         audioInfoList.clear();
         if (cursor.moveToLast()) {
             File file;

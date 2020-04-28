@@ -11,12 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aeolou.digital.media.android.tmediapicke.R;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

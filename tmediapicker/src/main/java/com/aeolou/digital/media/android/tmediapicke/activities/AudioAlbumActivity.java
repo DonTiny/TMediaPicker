@@ -118,13 +118,18 @@ public class AudioAlbumActivity extends TBaseActivity implements View.OnClickLis
 
     @Override
     public void onStarted() {
-        mPb_progress.setVisibility(View.VISIBLE);
-        mRecycle_album_select.setVisibility(View.INVISIBLE);
+        if (!isFinishing()){
+            mPb_progress.setVisibility(View.VISIBLE);
+            mRecycle_album_select.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     public void onError(Throwable throwable) {
-        mPb_progress.setVisibility(View.INVISIBLE);
+        if (!isFinishing()) {
+
+            mPb_progress.setVisibility(View.INVISIBLE);
+        }
         mTv_error.setVisibility(View.VISIBLE);
     }
 
@@ -152,8 +157,11 @@ public class AudioAlbumActivity extends TBaseActivity implements View.OnClickLis
     @Override
     public void onAudioAlbumResult(List<AudioAlbumInfo> audioAlbumInfoList, LoaderStorageType loaderStorageType) {
         this.audioAlbumInfoList = audioAlbumInfoList;
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mRecycle_album_select.setVisibility(View.VISIBLE);
-        adapter.setListData(this.audioAlbumInfoList);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mRecycle_album_select.setVisibility(View.VISIBLE);
+            adapter.setListData(this.audioAlbumInfoList);
+        }
+
     }
 }

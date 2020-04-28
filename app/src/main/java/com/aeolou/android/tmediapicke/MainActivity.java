@@ -11,8 +11,6 @@ import com.aeolou.digital.media.android.tmediapicke.manager.TMediaPicker;
 import com.aeolou.digital.media.android.tmediapicke.models.AudioInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.List;
 

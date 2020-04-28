@@ -1,4 +1,4 @@
-package com.aeolou.digital.media.android.tmediapicke.utils;
+package com.aeolou.android.tmediapicke;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

@@ -92,7 +92,6 @@ public class VideoLoader extends BaseMediaLoader implements Runnable {
                     videoInfo.setThumbnailsData(cursor.getString(cursor.getColumnIndex(TConstants.VIDEO_PROJECTION[18])));
                     videoInfo.setType(BaseMediaInfo.VIDEO);
                     videoInfoList.add(videoInfo);
-
                 }
             } while (cursor.moveToPrevious());
         }

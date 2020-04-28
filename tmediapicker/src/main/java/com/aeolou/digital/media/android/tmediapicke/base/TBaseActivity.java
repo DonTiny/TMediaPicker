@@ -18,8 +18,6 @@ import androidx.core.content.ContextCompat;
 
 import com.aeolou.digital.media.android.tmediapicke.R;
 import com.aeolou.digital.media.android.tmediapicke.helpers.TConstants;
-import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 
@@ -147,11 +145,8 @@ public abstract class TBaseActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        LogUtils.i(requestCode + "权限数组" + GsonUtil.gsonString(permissions), "结果数组" + GsonUtil.gsonString(grantResults));
         for (int grs : grantResults) {
-            LogUtils.i(grs + "==" + PackageManager.PERMISSION_DENIED + "结果" + (grs == PackageManager.PERMISSION_DENIED));
             if (grs == PackageManager.PERMISSION_DENIED) {
-                LogUtils.i("存在未获取权限");
                 permissionDenied();
                 return;
             }

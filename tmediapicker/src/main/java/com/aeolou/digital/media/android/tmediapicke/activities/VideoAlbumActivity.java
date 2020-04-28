@@ -21,8 +21,6 @@ import com.aeolou.digital.media.android.tmediapicke.manager.TMediaData;
 import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.VideoInfo;
-import com.aeolou.digital.media.android.tmediapicke.utils.GsonUtil;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,14 +116,18 @@ public class VideoAlbumActivity extends TBaseActivity implements VideoCallbacks,
 
     @Override
     public void onStarted() {
-        mPb_progress.setVisibility(View.VISIBLE);
-        mRecycle_album_select.setVisibility(View.INVISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.VISIBLE);
+            mRecycle_album_select.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     public void onError(Throwable throwable) {
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mTv_error.setVisibility(View.VISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mTv_error.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -151,10 +153,11 @@ public class VideoAlbumActivity extends TBaseActivity implements VideoCallbacks,
 
     @Override
     public void onVideoAlbumResult(List<VideoAlbumInfo> videoAlbumInfoList, LoaderStorageType loaderStorageType) {
-        LogUtils.i("视频数据" + GsonUtil.gsonString(videoAlbumInfoList));
         this.videoAlbumInfoList = videoAlbumInfoList;
-        mPb_progress.setVisibility(View.INVISIBLE);
-        mRecycle_album_select.setVisibility(View.VISIBLE);
-        adapter.setListData(this.videoAlbumInfoList);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            mRecycle_album_select.setVisibility(View.VISIBLE);
+            adapter.setListData(this.videoAlbumInfoList);
+        }
     }
 }

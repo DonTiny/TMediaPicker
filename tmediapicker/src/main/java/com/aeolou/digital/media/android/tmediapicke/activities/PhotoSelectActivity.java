@@ -26,7 +26,6 @@ import com.aeolou.digital.media.android.tmediapicke.manager.TMediaDataBuilder;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoAlbumInfo;
 import com.aeolou.digital.media.android.tmediapicke.models.PhotoInfo;
 import com.aeolou.digital.media.android.tmediapicke.utils.CollectionUtils;
-import com.aeolou.digital.media.android.tmediapicke.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +60,6 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LogUtils.i("-onDestroy");
         tMediaData.clear();
     }
 
@@ -86,7 +84,6 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        LogUtils.i("已选择数据init");
         Intent intent = getIntent();
         if (intent == null) {
             finish();
@@ -164,15 +161,17 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
     @Override
     public void onPhotoResult(List<PhotoInfo> photoInfoList, LoaderStorageType loaderStorageType) {
         this.photoInfoList = photoInfoList;
-        mPb_progress.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.VISIBLE);
-        adapter.setListData(this.photoInfoList);
-
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            adapter.setListData(this.photoInfoList);
+        }
     }
 
 
     @Override
     public void onPhotoAlbumResult(List<PhotoAlbumInfo> photoAlbumInfoList, LoaderStorageType loaderStorageType) {
+
     }
 
 
@@ -196,8 +195,10 @@ public class PhotoSelectActivity extends TBaseActivity implements PhotoCallbacks
 
     @Override
     protected void hideViews() {
-        mPb_progress.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE);
+        if (!isFinishing()) {
+            mPb_progress.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void updateUi() {
