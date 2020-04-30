@@ -8,6 +8,7 @@ import com.aeolou.digital.media.android.tmediapicke.callbacks.VideoCallbacks;
 import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderMediaType;
 import com.aeolou.digital.media.android.tmediapicke.helpers.LoaderStorageType;
 import com.aeolou.digital.media.android.tmediapicke.listener.OnMediaContentChangeListener;
+import com.aeolou.digital.media.android.tmediapicke.provider.ContextManager;
 
 /**
  * Author: Aeolou
@@ -76,6 +77,11 @@ public class TMediaData implements MediaOperations {
 
     }
 
+    @Override
+    public void setLoaderMediaType(LoaderMediaType loaderMediaType) {
+        mediaCollection.setLoaderMediaType(loaderMediaType);
+    }
+
     /**
      * 设置加载文件存储类型
      *
@@ -94,6 +100,19 @@ public class TMediaData implements MediaOperations {
     @Override
     public void setOnMediaContentChangeListener(OnMediaContentChangeListener listener) {
         mediaCollection.setOnMediaContentChangeListener(listener);
+    }
+
+    /**
+     * 添加本地多媒体扫描监听
+     *
+     * @param listener
+     */
+    public void addOnScanSDListenerList(ContextManager.OnScanSDListener listener) {
+        ContextManager.get().addOnScanSDListenerList(listener);
+    }
+
+    public void removeOnScanSDListenerList(ContextManager.OnScanSDListener listener) {
+        ContextManager.get().removeOnScanSDListenerList(listener);
     }
 
 

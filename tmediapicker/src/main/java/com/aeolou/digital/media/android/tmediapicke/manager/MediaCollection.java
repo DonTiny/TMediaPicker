@@ -38,7 +38,7 @@ public class MediaCollection implements MediaOperations, ContextManager.OnScanSD
     private LoaderMediaType loaderMediaType;
     private LoaderStorageType loaderStorageType;
     private ContentObserver observer;
-    private ExecutorService executorService;
+    private static ExecutorService executorService = Executors.newFixedThreadPool(10);
     private Handler handler;
     private OnMediaContentChangeListener onMediaContentChangeListener;
 
@@ -46,7 +46,6 @@ public class MediaCollection implements MediaOperations, ContextManager.OnScanSD
         this.mContext = context;
         this.loaderMediaType = loaderMediaType;
         this.loaderStorageType = loaderStorageType;
-        executorService = Executors.newFixedThreadPool(6);
         handler = new Handler(mContext.getMainLooper());
         observer = getMediaContentObserver();
         switch (loaderMediaType) {
@@ -191,10 +190,14 @@ public class MediaCollection implements MediaOperations, ContextManager.OnScanSD
         this.audioCallbacks = audioCallbacks;
     }
 
+    @Override
+    public void setLoaderMediaType(LoaderMediaType loaderMediaType) {
+        this.loaderMediaType = loaderMediaType;
+    }
+
     public void clear() {
         mContext.getContentResolver().unregisterContentObserver(observer);
-        executorService.shutdown();
-        executorService = null;
+//        executorService.shutdown();
         observer = null;
     }
 

@@ -16,6 +16,30 @@ import java.util.List;
 
 
 public class MainActivity extends TMediaPickerActivity implements View.OnClickListener {
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_select_photo:
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALL, 9);
+                break;
+            case R.id.btn_select_video:
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALL, 0);
+                break;
+            case R.id.btn_select_music:
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALL, 8);
+                break;
+            case R.id.btn_select_photo_album:
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALBUM, 0);
+                break;
+            case R.id.btn_select_video_album:
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALBUM, 0);
+                break;
+            case R.id.btn_select_audio_album:
+                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALBUM, 9);
+                break;
+        }
+    }
     private Button mBtn_select_photo;
     private Button mBtn_select_video;
     private Button mBtn_select_music;
@@ -63,29 +87,7 @@ public class MainActivity extends TMediaPickerActivity implements View.OnClickLi
 
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_select_photo:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALL, 9);
-                break;
-            case R.id.btn_select_video:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALL, 0);
-                break;
-            case R.id.btn_select_music:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALL, 8);
-                break;
-            case R.id.btn_select_photo_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.PHOTO_ALBUM, 0);
-                break;
-            case R.id.btn_select_video_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.VIDEO_ALBUM, 0);
-                break;
-            case R.id.btn_select_audio_album:
-                getTMediaPicker().toMediaPage(TMediaPicker.PageType.AUDIO_ALBUM, 9);
-                break;
-        }
-    }
+
 
     String dataStr = "";
 
@@ -113,7 +115,6 @@ public class MainActivity extends TMediaPickerActivity implements View.OnClickLi
         dataStr = GsonUtil.gsonString(audioInfoList);
         LogUtils.i("返回音乐数据" + dataStr);
         mTv_data.setText(dataStr);
-
     }
 
 }

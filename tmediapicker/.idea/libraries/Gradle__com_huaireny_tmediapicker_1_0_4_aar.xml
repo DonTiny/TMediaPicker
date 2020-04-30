@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.huaireny:tmediapicker:1.0.4@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/995697ac415ee5f9dfd0b16654416b03/tmediapicker-1.0.4/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/995697ac415ee5f9dfd0b16654416b03/tmediapicker-1.0.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/995697ac415ee5f9dfd0b16654416b03/tmediapicker-1.0.4/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huaireny/tmediapicker/1.0.4/319f39f90e7fdcfd4a93af603097c52d5acd2422/tmediapicker-1.0.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huaireny/tmediapicker/1.0.4/4ada3322850b54c84fecd73ababef4fe3ee33fdb/tmediapicker-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
